@@ -1,0 +1,130 @@
+body {
+    font-family: sans-serif;
+    margin:0;
+    /*Flexbox au niveau du body*/
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: space-between;
+    align-items: stretch;
+}
+body header {
+    width: 100vw;
+    padding:1vw;
+	margin:0;
+    background: rgba(255,255,255,0);
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: space-between;
+    align-items: center;
+    position:relative;
+    z-index:50;
+}
+body header nav {
+    width:60%;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: space-around;
+    align-items: center;
+    font-size:2vw;
+	}
+body header nav a {
+    text-shadow: #708090 2px 2px 7px;
+    text-decoration: none;
+	color:white;
+}
+body header a img {
+    width: 5vw;	
+}
+figure {
+    width:100%;
+    margin:0;
+	position: absolute;
+}
+figure img {
+    width:100%;
+}
+figure figcaption {
+    position:absolute;
+    width:35vw;
+    background:rgba(255,255,255, 0.5);
+    top:9.5vw;
+    left:10vw;
+    padding:0 1vw 2vw 0;
+}
+figure figcaption h1 {
+    font-size:2vw;
+	margin:0.5vw;
+}
+figure figcaption a {
+    font-size:2.3vw;
+    font-weight:bold;
+    font-style: italic;
+    width:15vw;
+    display:block;
+    color:white;
+    text-decoration: none;
+    padding:0.5vw 1vw;
+    background: #ba725d;
+    box-shadow: 0.2vw 0.2vw 0.3vw black;
+    margin:0.5vw auto 0 auto;
+}
+form {
+	width:40vw;
+    margin:auto;
+    font-family: sans-serif;
+	} 
+form > * {
+    width:100%;
+}
+input, select {
+    padding:10px;
+    border-radius:10px 5px 7px 12px;
+    border:1px solid #CCCCCC;
+}
+input[type=text], input[type=password] {
+    transition:all 0.5s;
+    font-size:2vw;
+}
+input[type=text]:hover, input[type=password]:hover {
+    box-shadow:2px 2px 10px black;
+    background:rgba(0,black,0, 0.2);
+}
+input[type=password], select{
+    width:50%;
+}
+label {
+    display:block;
+    margin:25px 0 5px 0;
+    padding-top:15px;
+    color:teal;
+    border-top: 1px solid black;
+}
+select {
+    font-size:1.5vw;
+}
+button {
+    display:block;
+    width: auto;
+    margin:10px auto;
+    padding:0.5vw 1vw;
+    font-size:1.2vw;
+    background:white;
+    border: 2px solid black;
+    border-radius: 10px 0;
+    -webkit-border-radius:10px 0;
+    -moz-border-radius:10px 0;
+    transition: all 0.5s;
+}
+button:hover {
+    border-radius: 0 10px;
+    box-shadow:2px 2px 5px white;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
