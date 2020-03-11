@@ -33,7 +33,7 @@ body header nav a {
 	color:white;
 }
 body header a img {
-    width: 5vw;	
+    width: 5vw;
 }
 figure {
     width:100%;
@@ -72,7 +72,7 @@ form {
 	width:40vw;
     margin:auto;
     font-family: sans-serif;
-	} 
+	}
 form > * {
     width:100%;
 }
@@ -121,7 +121,44 @@ button:hover {
     cursor: pointer;
 }
 
+main {
+    margin-top:60%;
+    width:100%;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+main section {
+    width:29vw;
+    margin:1vw;
+}
+main section img {
+    margin:auto;
+    height:18vw;
+    display:block;
+}
+main section article {
+    background: #fff0ec;
+    padding: 0.5vw 1vw;
+}
+main section article h2 {
+    font-size: 2.2vw;
+    color: #ba725d;
+    margin:0;
+    padding:0;
+}
 
+main section article p {
+    font-size: 1.3vw;
+}
+main section article a {
+    background: black;
+    color:white;
+    font-style: italic;
+    text-decoration: none;
+    padding:0.2vw 0.5vw;
+    font-size:1.3vw;
+}
 
 
 
