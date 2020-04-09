@@ -1,8 +1,13 @@
-<?php require_once '../views/layout/header.php'; ?>
+<?php
 
-
+require_once '../functions/db.php';
+require_once '../views/layout/header.php';
+?>
     <div class="container" >
         <br>
+        <h2>Connexion</h2>
+        <h6>Identifiez-vous pour accéder à votre compte de membre</h6>
+
         <br>
         <main>
             <form>

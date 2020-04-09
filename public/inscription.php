@@ -1,4 +1,7 @@
-<?php require_once '../views/layout/header.php'; ?>
+<?php
+require_once '../views/layout/header.php';
+require_once '../functions/db.php';
+?>
 
 
 <div class="container" >
