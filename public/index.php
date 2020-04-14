@@ -1,7 +1,7 @@
 <?php require_once '../views/layout/header.php'; ?>
 
 <figure>
-    <img src="../Images/vraiLogo.png" alt="paysage" />
+    <img src="./Images/paysage.jpg" alt="paysage" />
     <figcaption>
         <div class="container" style="position:absolute;top:100px;width:300px;margin:50px">
             <h2>Réservez votre logement</h2>
