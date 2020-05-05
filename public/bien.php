@@ -8,20 +8,20 @@
         <br>
         <div class="card-deck">
             <div class="card" style="width: 18rem;">
-                <img src="../../../UI/Images/appartement.jpg" class="card-img-top" alt="appartement">
-                <img src="../../../UI/Images/appartement2.jpg" class="card-img-top" alt="autreAppartement">
+                <img src="./Images/appartement.jpg" class="card-img-top" alt="appartement">
+                <img src="./Images/appartement2.jpg" class="card-img-top" alt="autreAppartement">
             </div>
             <br>
             <br>
             <div class="card" style="width: 18rem;">
-                <img src="../../../UI/Images/appartement.jpg" class="card-img-top" alt="appartement">
-                <img src="../../../UI/Images/appartement2.jpg" class="card-img-top" alt="autreAppartement">
+                <img src="./Images/appartement.jpg" class="card-img-top" alt="appartement">
+                <img src="./Images/appartement2.jpg" class="card-img-top" alt="autreAppartement">
             </div>
             <br>
             <br>
             <div class="card" style="width: 18rem;">
-                <img src="../../../UI/Images/appartement.jpg" class="card-img-top" alt="appartement">
-                <img src="../../../UI/Images/appartement2.jpg" class="card-img-top" alt="autreAppartement">
+                <img src="./Images/appartement.jpg" class="card-img-top" alt="appartement">
+                <img src="./Images/appartement2.jpg" class="card-img-top" alt="autreAppartement">
             </div>
         </div>
 
