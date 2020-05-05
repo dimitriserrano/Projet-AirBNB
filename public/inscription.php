@@ -25,7 +25,11 @@ require_once '../functions/db.php';
             <label for="exampleInputPassword1">Mot de passe </label>
             <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Entrez votre mot de passe...">
         </div>
-        <button type="submit" class="btn btn-primary"><a class="nav-link" href="./membre/profil.php"/>Je deviens hôte</button>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Confirmation </label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Confirmer votre mot de passe...">
+        </div>
+        <button type="submit"><a class="nav-link" href="./membre/profil.php"/>Je deviens hôte</button>
     </form>
 </main>
 </div>
