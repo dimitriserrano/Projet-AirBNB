@@ -1,7 +1,11 @@
 <?php
-
 require_once '../functions/db.php';
+require_once  '../functions/utils.php';
 require_once '../views/layout/header.php';
+
+$pdo = getPdo();
+
+
 ?>
     <div class="container" >
         <br>
