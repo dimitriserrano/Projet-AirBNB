@@ -51,5 +51,4 @@ function getDisponibilite(int $id_bien): ?array
     }
 
     return $row;
-
 }
