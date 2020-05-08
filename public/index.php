@@ -37,7 +37,7 @@
                     </select>
                     <small id="persons" class="form-text text-muted">Entrez le nombre de personnes qui désir voyager.</small>
                     <br>
-                    <button type="submit"><a class="nav-link" href="recherche.php"/>Recherchez</button> <!-- regarder le bug -->
+                    <button type="submit"><a class="nav-link" href="recherche.php"/>Rechercher</button> <!-- regarder le bug -->
                 </div>
             </form>
         </div>
