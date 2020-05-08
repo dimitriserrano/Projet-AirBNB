@@ -5,7 +5,7 @@ require_once __DIR__ . '/db.php';
  * @param string $dispo
  * @param string|null $search
  * @return array
- * @var string $dispo"all"|"dispo"|"not_dispo"
+ * @var string $dispo "all"|"dispo"|"not_dispo"
  * @return void
  */
 
