@@ -13,7 +13,7 @@ require_once '../../views/layout/header.php';?>
     <br>
     <h3>Mes annonces :</h3><button type="submit"><a class="nav-link" href="ajoutBien.php">Ajouter une annonce</button>
     //visualiser toute les annonces de la personne
-    <button type="submit"><a class="nav-link" href="modifProfil.php">Modifier mon annonce</button>
+    <button type="submit"><a class="nav-link" href="modifBien.php">Modifier mon annonce</button>
     //suppression d'un bien
 </div>
 
