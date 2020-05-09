@@ -16,6 +16,13 @@
                 <li class="nav-item">
                     <a class="nav-link" href="../connexion.php">Connexion</a>
                 </li>
+                <?php
+                @session_start();
+                if (isset($_SESSION['state']) && $_SESSION['state'] == 'connected') { ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/membre/deconnexion.php">Déconnexion</a>
+                    </li>
+                <?php } ?>
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
