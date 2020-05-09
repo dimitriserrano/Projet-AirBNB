@@ -1,7 +1,49 @@
-<?php require_once '../../views/layout/header.php'; ?>
+<?php
+require_once '../../functions/ameliorationBien.php';
+require_once '../../functions/disponibilite.php';
+require_once '../../views/layout/header.php';
+?>
 
     <div class="container">
+
         <br>
+        <h1>Modifier mon annonce</h1>
+        <br>
+
+        <?php if (!isset($_GET['id_bien'])) { ?>
+            <div class="alert alert-danger" role="alert">
+                Paramètre manquant : id
+            </div>
+            <?php
+            exit;
+        }
+
+        $id_bien = $_GET['id_bien'];
+
+        if (isset($_POST['lieux']) && isset($_POST['dates']) && isset($_POST['dispo']) && isset($_POST['prix']) && isset($_POST['description']) && isset($_POST['photo'])) {
+            $lieux = $_POST['lieux'];
+            $dates = $_POST['dates'];
+            $dispo = $_POST['dispo'];
+            $prix = $_POST['prix'];
+            $description = $_POST['description'];
+            $photo = $_POST['photo'];
+
+            $update = updateBien(
+                $id_bien,
+                $lieux,
+                $dates,
+                $dispo,
+                $prix,
+                $description,
+                $photo
+            );
+
+            var_dump($update);
+        }
+
+        $disponibilites = getDisponibilites($id_bien);
+
+        ?>
         <form>
             <div class="form-group">
                 <label for="exampleFormControlInput1">Titre</label>
