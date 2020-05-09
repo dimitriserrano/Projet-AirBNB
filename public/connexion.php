@@ -3,7 +3,7 @@ require_once '../functions/db.php';
 require_once  '../functions/utils.php';
 
 $pdo = getPdo();
-$mail="";
+$mail=""; //On initaialise $mail a une chaine vide
 $error=false;
 
 if (!empty($_POST['mail']) && !empty($_POST['mdp']))
@@ -45,7 +45,7 @@ require_once '../views/layout/header.php';
             <form>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Email</label>
-                    <input type="email" class="form-control" id="mail" name="mail" aria-describedby="emailHelp" placeholder="Adresse mail...">
+                    <input type="email" class="form-control" id="mail" name="mail" placeholder="Adresse mail...">
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Mot de passe</label>
