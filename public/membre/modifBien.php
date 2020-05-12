@@ -51,7 +51,7 @@ require_once '../../views/layout/header.php';
             </div>
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Description</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Entrez une description de votre bien..."></textarea>
+                <textarea class="form-control" id="description" name="description" rows="3" placeholder="Entrez une description de votre bien..."></textarea>
             </div>
             <div class="form-group">
                 <label for="exampleFormControlInput1">Places dans le logement</label>
@@ -59,7 +59,7 @@ require_once '../../views/layout/header.php';
             </div>
             <div class="form-group">
                 <label for="exampleFormControlInput1">Lieu</label>
-                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Entrez le lieu de votre bien...">
+                <input type="text" class="form-control" id="lieux" name="lieux" placeholder="Entrez le lieu de votre bien...">
             </div>
             <div class="form-group">
                 <label for="exampleFormControlInput1">Prix par personne</label>
@@ -67,7 +67,7 @@ require_once '../../views/layout/header.php';
             </div>
             <div class="form-group">
                 <label for="exampleFormControlFile1">Photo du bien</label>
-                <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                <input type="file" class="form-control-file" id="photo" name="photo">
             </div>
         </form>
     </div>
