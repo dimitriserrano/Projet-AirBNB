@@ -42,13 +42,13 @@ require_once '../views/layout/header.php';
 
         <br>
         <main>
-            <form>
+            <form method="POST">
                 <div class="form-group">
-                    <label for="exampleInputEmail1">Email</label>
-                    <input type="email" class="form-control" id="mail" name="mail" placeholder="Adresse mail...">
+                    <label for="mail">Email</label>
+                    <input type="email" class="form-control" id="mail" name="mail" placeholder="Adresse mail..." value="<?php echo $mail; ?>">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Mot de passe</label>
+                    <label for="mdp">Mot de passe</label>
                     <input type="password" class="form-control" id="mdp" name="mdp" placeholder="Mot de passe...">
                 </div>
                 <button type="submit" class="btn btn-primary">Se connecter</button>

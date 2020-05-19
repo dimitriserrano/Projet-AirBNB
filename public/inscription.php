@@ -8,7 +8,7 @@ require_once '../views/layout/header.php';
     <br>
     <br>
 <main>
-    <form method="post">
+    <form method="POST">
         <div class="form-group">
             <label for="nom">Nom</label>
             <input type="text" class="form-control" id="nom" name="nom" aria-describedby="lastnameHelp" placeholder="Entrez votre nom...">
