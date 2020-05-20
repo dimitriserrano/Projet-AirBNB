@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/db.php';
 
-function insertBien(sting $nom, string $lieux,string $dates, string $dispo, string $prix, string $description, string $photo): bool
+function insertBien(string $nom, string $lieux,string $dates, string $dispo, string $prix, string $description, string $photo): bool
 {
     $pdo=getPdo();
     $query = "INSERT INTO bien_immobilier (nom, lieux, dates, dispo, prix, description, photo) VALUES (:nom, :lieux, :dates, :dispo, :prix, :description, :photo)";
