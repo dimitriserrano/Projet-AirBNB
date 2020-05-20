@@ -14,7 +14,7 @@ $profil = getProfil($id_utilisateur);
     <br>
     <h1>Votre profil </h1>
     <br>
-    //photo de profil
+    <img src="../Images/<?php echo($profil['photo'])?>"/>
     <p>Nom : <?php echo($profil['nom']) ?></p>
     <p>Prénom : <?php echo($profil['prenom']) ?></p>
     <p>Votre adresse mail : <?php echo($profil['mail']) ?></p>
