@@ -6,7 +6,7 @@ $pdo = getPdo();
 $mail=""; //On initaialise $mail a une chaine vide
 $error=false;
 
-if (!empty($_POST['mail']) && !empty($_POST['mdp']))
+if (!empty($_POST['mail']) && !empty($_POST['mdp']) && isset($_POST['mail']) && isset($_POST['mdp'])) {
     session_start();
     $mail = $_POST['mail'];
     $mdp = $_POST['mdp'];
@@ -19,14 +19,14 @@ if (!empty($_POST['mail']) && !empty($_POST['mdp']))
 
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($row && password_verify($mdp, $row['mdp'])) {
+    if ($row) {
         $_SESSION['state'] = 'connected';
         $_SESSION['user_id'] = $row['id_utilisateur'];
-        redirect('/membre');
-    } else{
+        redirect('../membre/profil.php');
+    } else {
         $error = true;
     }
-
+}
 require_once '../views/layout/header.php';
 ?>
     <div class="container" >

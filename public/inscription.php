@@ -29,7 +29,7 @@ require_once '../views/layout/header.php';
             <label for="exampleInputPassword1">Confirmation </label>
             <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Confirmer votre mot de passe...">
         </div>-->
-        <button type="submit"><a class="nav-link" href="./membre/profil.php"/>Je deviens hôte</button>
+        <button type="submit">Je deviens hôte</button>
     </form>
 </main>
 </div>
@@ -38,14 +38,14 @@ require_once '../views/layout/header.php';
 
 $pdo=getPdo();
 
-if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['mail']) && isset($_POST['mdp'])) {
-    $solde=3;
+if (!empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['mail']) && !empty($_POST['mdp'])) {
+    $solde=5000;
     $nom=$_POST['nom'];
     $prenom=$_POST['prenom'];
     $mail=$_POST['mail'];
     $mdp=$_POST['mdp'];
     $photo='marc.png';
-    ajout($solde, $nom, $prenom, $mail, $mdp, $photo);
+    $ajout = ajout($solde, $nom, $prenom, $mail, $mdp, $photo);
 }
 
 

@@ -1,19 +1,19 @@
 <?php
 require_once '../functions/db.php';
 
-function ajout(int $solde, string $nom, string $prenom, string $mail, string $mdp, string $photo)
+function ajout(int $solde, string $nom, string $prenom, string $mail, string $mdp, string $photo) : bool
 {
     $pdo = getPdo();
 
-    $query = "INSERT INTO utilisateur (solde, nom, prenom, mail, mdp, photo) VALUES (:solde :nom, :prenom, :mail, :mdp, :photo)";
+    $query = "INSERT INTO utilisateur (solde, nom, prenom, mail, mdp, photo) VALUES (:solde, :nom, :prenom, :mail, :mdp, :photo)";
     $stmt = $pdo->prepare($query);
 
-    return $stmt->execute(array(
+    return $stmt->execute([
         'solde' => $solde,
         'nom' => $nom,
         'prenom' => $prenom,
         'mail' => $mail,
         'mdp' => password_hash($mdp, PASSWORD_BCRYPT, ['cost' => 12]),
-        'photo' => $photo,
-    ));
-}?>
+        'photo' => $photo
+    ]);
+}
