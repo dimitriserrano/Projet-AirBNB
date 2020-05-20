@@ -22,8 +22,10 @@ $profil = getProfil($id_utilisateur);
     <h3>Mes annonces :</h3>
         <button type="submit"><a class="nav-link" href="ajoutBien.php">Ajouter une annonce</button>
     //visualiser toute les annonces de la personne
+    <br>
     <button type="submit"><a class="nav-link" href="modifBien.php">Modifier mon annonce</button>
-    //suppression d'un bien
+    <br>
+    <button type="button" class="btn btn-primary">Supprimer une annonce</button>
 </div>
 
 <?php require_once '../../views/layout/footer.php'; ?>
