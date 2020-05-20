@@ -20,12 +20,13 @@ require_once '../../views/layout/header.php';
 
         $id_bien = $_GET['id_bien'];
 
-        if (isset($_POST['lieux']) && isset($_POST['dates']) && isset($_POST['dispo']) && isset($_POST['prix']) && isset($_POST['description']) && isset($_POST['photo'])) {
+        if (isset($_POST['lieux']) && isset($_POST['dates']) && isset($_POST['dispo']) && isset($_POST['prix']) && isset($_POST['description']) && isset($_POST['places']) && isset($_POST['photo'])) {
             $lieux = $_POST['lieux'];
             $dates = $_POST['dates'];
             $dispo = $_POST['dispo'];
             $prix = $_POST['prix'];
             $description = $_POST['description'];
+            $places = $_POST['places'];
             $photo = $_POST['photo'];
 
             $update = updateBien(
@@ -35,6 +36,7 @@ require_once '../../views/layout/header.php';
                 $dispo,
                 $prix,
                 $description,
+                $places,
                 $photo
             );
 
