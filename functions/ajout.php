@@ -13,7 +13,7 @@ function ajout(int $solde, string $nom, string $prenom, string $mail, string $md
         'nom' => $nom,
         'prenom' => $prenom,
         'mail' => $mail,
-        'mdp' => password_hash($mdp, PASSWORD_BCRYPT, ['cost' => 12]),
+        'mdp' => $mdp,
         'photo' => $photo
     ]);
 }
