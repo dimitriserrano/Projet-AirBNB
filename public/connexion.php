@@ -19,7 +19,7 @@ if (!empty($_POST['mail']) && !empty($_POST['mdp']) && isset($_POST['mail']) && 
 
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($row) {
+    if ($row && password_verify($mdp, $row['mdp'])) {
         $_SESSION['state'] = 'connected';
         $_SESSION['user_id'] = $row['id_utilisateur'];
         redirect('../membre/profil.php');
