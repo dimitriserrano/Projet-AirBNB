@@ -19,6 +19,7 @@ $profil = getProfil($id_utilisateur);
     <p>Nom : <?php echo($profil['nom']) ?></p>
     <p>Prénom : <?php echo($profil['prenom']) ?></p>
     <p>Votre adresse mail : <?php echo($profil['mail']) ?></p>
+    <p>Mon argent : <?php echo($profil['solde']) ?> €</p>
     <br>
     <h3>Mes annonces :</h3>
     <br>
