@@ -10,17 +10,18 @@ require_once '../../views/layout/header.php';
         <h1>Modifier mon annonce</h1>
         <br>
 
-        <?php if (!isset($_GET['id_bien'])) { ?>
-            <div class="alert alert-danger" role="alert">
+        <?php //if (!isset($_GET['id_bien'])) { ?>
+            <!--<div class="alert alert-danger" role="alert">
                 Paramètre manquant : id
-            </div>
+            </div>-->
             <?php
-            exit;
-        }
+            //exit;
+        //}
 
-        $id_bien = $_GET['id_bien'];
+        //$id_bien = $_GET['id_bien'];
 
-        if (isset($_POST['lieux']) && isset($_POST['dates']) && isset($_POST['dispo']) && isset($_POST['prix']) && isset($_POST['description']) && isset($_POST['places']) && isset($_POST['photo'])) {
+        if (isset($_POST['titre']) &&isset($_POST['lieux']) && isset($_POST['dates']) && isset($_POST['dispo']) && isset($_POST['prix']) && isset($_POST['description']) && isset($_POST['places']) && isset($_POST['photo'])) {
+            $titre = $_POST['titre'];
             $lieux = $_POST['lieux'];
             $dates = $_POST['dates'];
             $dispo = $_POST['dispo'];
@@ -31,6 +32,7 @@ require_once '../../views/layout/header.php';
 
             $update = updateBien(
                 $id_bien,
+                $titre,
                 $lieux,
                 $dates,
                 $dispo,
@@ -43,7 +45,7 @@ require_once '../../views/layout/header.php';
             var_dump($update);
         }
 
-        $disponibilites = getDisponibilites($id_bien);
+        $disponibilites = getDisponibilite($id_bien);
 
         ?>
         <form method="POST">

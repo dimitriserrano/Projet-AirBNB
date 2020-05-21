@@ -50,23 +50,25 @@ if (!empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['mail']) 
     $mdp = $_POST['mdp'];
     $photo = '';
     $ajout = ajout($solde, $nom, $prenom, $mail, $mdp, $photo);
-}
 
-if (isset($_FILES['photo']) && !empty($_FILES['photo'])) {
-    // on met le fichier dans une variable pour une meilleure lisibilité
-    $file = $_FILES['photo'];
+    if (isset($_FILES['photo']) && !empty($_FILES['photo'])) {
+        // on met le fichier dans une variable pour une meilleure lisibilité
+        $file = $_FILES['photo'];
 
-    // On récupère le nom du fichier
-    $filename = $file['name'];
+        // On récupère le nom du fichier
+        $filename = $file['name'];
 
-    // On construit le chemin de destination
-    $destination = __DIR__ . "/Images/" . $filename;
+        // On construit le chemin de destination
+        $destination = __DIR__ . "/Images/" . $filename;
 
-    // On bouge le fichier temporaire dans la destination
-    if (move_uploaded_file($file['tmp_name'], $destination)) {
-        echo $filename . " Correctement enregistré<br />";
+        // On bouge le fichier temporaire dans la destination
+        if (move_uploaded_file($file['tmp_name'], $destination)) {
+            echo $filename . " Correctement enregistré<br />";
+        }
     }
 }
+
+
 
 
 require_once '../views/layout/footer.php';
