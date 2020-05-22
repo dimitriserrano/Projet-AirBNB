@@ -20,6 +20,13 @@
                 @session_start();
                 if (isset($_SESSION['state']) && $_SESSION['state'] == 'connected') { ?>
                     <li class="nav-item">
+                        <a class="nav-link" href="/membre/profil.php">Mon profil</a>
+                    </li>
+                <?php } ?>
+                <?php
+                @session_start();
+                if (isset($_SESSION['state']) && $_SESSION['state'] == 'connected') { ?>
+                    <li class="nav-item">
                         <a class="nav-link" href="/membre/deconnexion.php">Déconnexion</a>
                     </li>
                 <?php } ?>
