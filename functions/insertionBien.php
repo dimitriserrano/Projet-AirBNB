@@ -7,7 +7,7 @@ function insertBien(string $titre, string $lieux,string $dates, string $dispo, s
     $query = "INSERT INTO bien_immobilier (titre, lieux, dates, dispo, prix, description, photo) VALUES (:titre, :lieux, :dates, :dispo, :prix, :description, :photo)";
     $stmt = $pdo->prepare($query);
     return $stmt->execute([
-        'nom' => $titre,
+        'titre' => $titre,
         'lieux' => $lieux,
         'dates' => $dates,
         'dispo' => $dispo,

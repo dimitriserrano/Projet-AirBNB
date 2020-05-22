@@ -2,10 +2,12 @@
 require_once '../../functions/db.php';
 require_once '../../views/layout/header.php';
 require_once '../../functions/donnéeProfil.php';
+require_once '../../functions/disponibilite.php';
 
 $id_utilisateur = $_SESSION['user_id'];
-
 $profil = getProfil($id_utilisateur);
+
+$annonce = getDisponibilite($id_utilisateur);
 
 
 ?>
@@ -28,22 +30,25 @@ $profil = getProfil($id_utilisateur);
         <tr>
             <th scope="col">Titre</th>
             <th scope="col">Lieu</th>
+            <th scope="col">Disponibilité</th>
             <th scope="col">Supprimer</th>
             <th scope="col">Modifier</th>
         </tr>
         </thead>
         <tbody>
         <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td><button type="submit">Supprimer mon annonce</button></td>
-            <td><button type="submit"><a class="nav-link" href="modifBien.php">Modifier mon annonce</button></td>
+            <td scope="row"><?php echo($annonce['titre']) ?></td>
+            <td><?php echo($annonce['lieux']) ?>></td>
+            <td><?php echo($annonce['dispo']) ?>></td>
+            <td><button type="submit">Supprimer</button></td>
+            <td><button type="submit"><a class="nav-link" href="modifBien.php">Modifier</button></td>
         </tr>
         <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
+            <td scope="row"><?php echo($annonce['titre']) ?></td>
+            <td><?php echo($annonce['lieux']) ?>></td>
+            <td><?php echo($annonce['dispo']) ?>></td>
+            <td><button type="submit">Supprimer</button></td>
+            <td><button type="submit"><a class="nav-link" href="modifBien.php">Modifier</button></td>
         </tr>
         <tr>
             <th scope="row">3</th>
