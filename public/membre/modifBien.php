@@ -18,16 +18,16 @@ require_once '../../views/layout/header.php';
             //exit;
         //}
 
-        //$id_bien = $_GET['id_bien'];
+        $id_bien = $_GET['id_bien'];
 
-        if (isset($_POST['titre']) &&isset($_POST['lieux']) && isset($_POST['dates']) && isset($_POST['dispo']) && isset($_POST['prix']) && isset($_POST['description']) && isset($_POST['places']) && isset($_POST['photo'])) {
+        if (isset($_POST['titre']) &&isset($_POST['lieux']) && isset($_POST['dates']) && isset($_POST['prix']) && isset($_POST['description']) && isset($_POST['places']) && isset($_POST['lit'])  && isset($_POST['photo'])) {
             $titre = $_POST['titre'];
             $lieux = $_POST['lieux'];
             $dates = $_POST['dates'];
-            $dispo = $_POST['dispo'];
             $prix = $_POST['prix'];
             $description = $_POST['description'];
             $places = $_POST['places'];
+            $lit = $_POST['lit'];
             $photo = $_POST['photo'];
 
             $update = updateBien(
@@ -35,10 +35,10 @@ require_once '../../views/layout/header.php';
                 $titre,
                 $lieux,
                 $dates,
-                $dispo,
                 $prix,
                 $description,
                 $places,
+                $lit,
                 $photo
             );
 

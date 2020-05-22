@@ -25,12 +25,13 @@ $annonce = getDisponibilite($id_utilisateur);
     <br>
     <h3>Mes annonces :</h3>
     <br>
+    <button type="submit"><a class="nav-link" href="ajoutBien.php">Ajouter une annonce</button>
+    <br>
     <table class="table">
         <thead>
         <tr>
             <th scope="col">Titre</th>
             <th scope="col">Lieu</th>
-            <th scope="col">Disponibilité</th>
             <th scope="col">Supprimer</th>
             <th scope="col">Modifier</th>
         </tr>
@@ -39,14 +40,12 @@ $annonce = getDisponibilite($id_utilisateur);
         <tr>
             <td scope="row"><?php echo($annonce['titre']) ?></td>
             <td><?php echo($annonce['lieux']) ?></td>
-            <td><?php echo($annonce['dispo']) ?></td>
             <td><button type="submit">Supprimer</button></td>
             <td><button type="submit"><a class="nav-link" href="modifBien.php">Modifier</button></td>
         </tr>
         <tr>
             <td scope="row"><?php echo($annonce['titre']) ?></td>
             <td><?php echo($annonce['lieux']) ?></td>
-            <td><?php echo($annonce['dispo']) ?></td>
             <td><button type="submit">Supprimer</button></td>
             <td><button type="submit"><a class="nav-link" href="modifBien.php">Modifier</button></td>
         </tr>

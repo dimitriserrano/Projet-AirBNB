@@ -1,4 +1,10 @@
-<?php require_once '../views/layout/header.php'; ?>
+<?php require_once '../views/layout/header.php';
+require_once '../functions/disponibilite.php';
+
+$id_utilisateur = $_SESSION['user_id'];
+$bien = getDisponibilite($id_utilisateur);
+
+?>
 
 <div class="container">
     <br>
@@ -8,7 +14,7 @@
         <br>
         <div class="card-deck">
             <div class="card" style="width: 18rem;">
-                <img src="./Images/appartement.jpg" class="card-img-top" alt="appartement">
+                <img src="./Images/<?php echo($bien['photo']) ?>" class="card-img-top" alt="appartement">
                 <img src="./Images/appartement2.jpg" class="card-img-top" alt="autreAppartement">
             </div>
             <br>
@@ -24,9 +30,10 @@
                 <img src="./Images/appartement2.jpg" class="card-img-top" alt="autreAppartement">
             </div>
         </div>
-
         <br>
-        <h3>(Lieu)</h3>
+        <h3><?php echo($bien['titre']) ?></h3>
+        <br>
+        <h5><?php echo($bien['lieux']) ?></h5>
 
         <div class="container">
             <br>
@@ -34,24 +41,9 @@
             <div class="card-deck">
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
-                        <h5 class="card-title">(Nombre de personnes)</h5>
+                        <h5 class="card-title"><?php echo($bien['places']) ?> places</h5>
                         <br>
-                        <p class="card-text">(Etat du lieu)</p>
-                        <p class="card-text">(Procédure d'arrivée)</p>
-                        <br>
-                        <h6>Equipements dans l'habitation</h6>
-                        <br>
-                        <p class="card-text">Wi-Fi</p>
-                        <p class="card-text">Télévision</p>
-                        <p class="card-text">Vaiselle mise à disposition du client</p>
-                    </div>
-                </div>
-                <br>
-                <br>
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">Couchage</h5>
-                        <p class="card-text">1 lit-double</p>
+                        <h5 class="card-title"><?php echo($bien['lit']) ?></h5>
                     </div>
                 </div>
                 <br>
