@@ -11,6 +11,9 @@
                     <a class="nav-link" href="../index.php">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="../recherche.php">Annonces</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="../inscription.php">Devenir hôte</a>
                 </li>
                 <li class="nav-item">
