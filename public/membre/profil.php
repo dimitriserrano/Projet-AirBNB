@@ -25,38 +25,40 @@ $annonce = getDisponibilite($id_utilisateur);
     <br>
     <h3>Mes annonces :</h3>
     <br>
-    <button type="submit"><a class="nav-link" href="ajoutBien.php">Ajouter une annonce</button>
     <br>
-    <table class="table">
-        <thead>
-        <tr>
-            <th scope="col">Titre</th>
-            <th scope="col">Lieu</th>
-            <th scope="col">Supprimer</th>
-            <th scope="col">Modifier</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td scope="row"><?php echo($annonce['titre']) ?></td>
-            <td><?php echo($annonce['lieux']) ?></td>
-            <td><button type="submit">Supprimer</button></td>
-            <td><button type="submit"><a class="nav-link" href="modifBien.php">Modifier</button></td>
-        </tr>
-        <tr>
-            <td scope="row"><?php echo($annonce['titre']) ?></td>
-            <td><?php echo($annonce['lieux']) ?></td>
-            <td><button type="submit">Supprimer</button></td>
-            <td><button type="submit"><a class="nav-link" href="modifBien.php">Modifier</button></td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-        </tr>
-        </tbody>
-    </table>
+    <div class="row">
+        <div class="card-deck">
+            <div class="card" style="width: 18rem;">
+                <img src="../Images/appartement.jpg" class="card-img-top" alt="appartement">
+                <div class="card-body">
+                    <h5 class="card-title"><?php echo($annonce['titre']) ?></h5>
+                    <p class="card-text"><?php echo($annonce['lieux']) ?></p>
+                    <p class="card-text"><?php echo($annonce['description']) ?></p>
+                    <a href="#"><a class="nav-link" href="../bien.php"/>Voir l'annonce</a>
+                </div>
+            </div>
+            <br>
+            <br>
+            <div class="card" style="width: 18rem;">
+                <img src="../Images/appartement.jpg" class="card-img-top" alt="appartement">
+                <div class="card-body">
+                    <h5 class="card-title"><?php echo($annonce['titre']) ?></h5>
+                    <p class="card-text"><?php echo($annonce['lieux']) ?></p>
+                    <p class="card-text"><?php echo($annonce['description']) ?></p>
+                    <a href="#"><a class="nav-link" href="../bien.php"/>Voir l'annonce</a>
+                </div>
+            </div>
+            <br>
+            <br>
+            <div class="card" style="width: 18rem;">
+                <img src="../Images/appartement.jpg" class="card-img-top" alt="appartement">
+                <div class="card-body">
+                    <h5 class="card-title">Appartement (+lieu)</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#"><a class="nav-link" href="../bien.php"/>Voir l'annonce</a>
+                </div>
+            </div>
+        </div>
 </div>
 
 <?php require_once '../../views/layout/footer.php'; ?>

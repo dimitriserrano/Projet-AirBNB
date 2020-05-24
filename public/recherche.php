@@ -2,8 +2,7 @@
 require_once '../functions/disponibilite.php';
 require_once '../views/layout/header.php';
 
-$id_utilisateur = $_SESSION['user_id'];
-$annonce = getDisponibilite($id_utilisateur);
+$annonce = getDisponibilites();
 
 ?>
 
