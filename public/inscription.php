@@ -49,7 +49,6 @@ if (!empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['mail']) 
     $mail = $_POST['mail'];
     $mdp = $_POST['mdp'];
     $photo = '';
-    $ajout = ajout($solde, $nom, $prenom, $mail, $mdp, $photo);
 
     if (isset($_FILES['photo']) && !empty($_FILES['photo'])) {
         // on met le fichier dans une variable pour une meilleure lisibilité
@@ -64,6 +63,7 @@ if (!empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['mail']) 
         // On bouge le fichier temporaire dans la destination
         if (move_uploaded_file($file['tmp_name'], $destination)) {
             echo $filename . " Correctement enregistré<br />";
+            $ajout = ajout($solde, $nom, $prenom, $mail, $mdp, $photo);
         }
     }
 }
