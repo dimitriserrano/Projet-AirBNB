@@ -12,7 +12,7 @@ require_once '../../functions/insertionBien.php';
 
 
     <br>
-    <form method="POST">
+    <form method="POST" enctype="multipart/form-data">
         <div class="form-group">
             <label for="exampleFormControlInput1">Titre</label>
             <input type="text" class="form-control" id="titre" name="titre" placeholder="Entrez le titre de votre bien...">
@@ -51,18 +51,14 @@ require_once '../../functions/insertionBien.php';
 $pdo = getPdo();
 
 $id_utilisateur = $_SESSION['user_id'];
-//$insertion = get($id_utilisateur);
 
-if (!empty($_POST['titre']) && !empty($_POST['lieux']) && !empty($_POST['dates']) && !empty($_POST['prix']) && !empty($_POST['description']) && !empty($_POST['places']) && !empty($_POST['lit']) && !empty($_POST['photo'])) {
+if (!empty($_POST['titre']) && !empty($_POST['lieux']) && !empty($_POST['prix']) && !empty($_POST['description']) && !empty($_POST['places']) && !empty($_POST['lit'])) {
     $titre = $_POST['titre'];
     $lieux = $_POST['lieux'];
-    $dates = $_POST['dates'];
     $prix = $_POST['prix'];
     $description = $_POST['description'];
     $places = $_POST['places'];
     $lit = $_POST['lit'];
-    $photo = '';
-    $insertion = insertBien($titre, $lieux, $dates, $prix, $description, $places, $lit, $photo);
 
     if (isset($_FILES['photo']) && !empty($_FILES['photo'])) {
         // on met le fichier dans une variable pour une meilleure lisibilité
@@ -72,11 +68,12 @@ if (!empty($_POST['titre']) && !empty($_POST['lieux']) && !empty($_POST['dates']
         $filename = $file['name'];
 
         // On construit le chemin de destination
-        $destination = __DIR__ . "/Images/" . $filename;
+        $destination = __DIR__ . "../../Images/" . $filename;
 
         // On bouge le fichier temporaire dans la destination
         if (move_uploaded_file($file['tmp_name'], $destination)) {
             echo $filename . " Correctement enregistré<br />";
+            $insertion = insertBien($id_utilisateur, $titre, $lieux, $prix, $description, $places, $lit, $filename);
         }
     }
 }
