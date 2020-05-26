@@ -3,7 +3,7 @@
 function getAnnonce(int $id_bien)
 {
     $pdo = getPdo();
-    $query = "SELECT * FROM bien_immobilier WHERE id_bien = :id_bien";
+    $query = "SELECT * FROM annonce WHERE id_bien = :id_bien";
     $stmt = $pdo->prepare($query);
     $stmt->execute(['id_bien' => $id_bien]);
 

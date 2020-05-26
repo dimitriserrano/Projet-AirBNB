@@ -16,101 +16,16 @@ $annonce = getDisponibilites();
     <div class="row">
         <div class="card-deck">
             <div class="card" style="width: 18rem;">
+                <?php foreach ($annonce as $bien) { ?>
                 <img src="./Images/appartement.jpg" class="card-img-top" alt="appartement">
                 <div class="card-body">
-                    <h5 class="card-title"><?php echo($annonce['titre']) ?></h5>
-                    <p class="card-text"><?php echo($annonce['lieux']) ?></p>
-                    <p class="card-text"><?php echo($annonce['description']) ?></p>
-                    <a href="#"><a class="nav-link" href="bien.php"/>Voir l'annonce</a>
+                    <h5 class="card-title"><?php echo($bien['titre']) ?></h5>
+                    <p class="card-text"><?php echo($bien['lieux']) ?></p>
+                    <p class="card-text"><?php echo($bien['description']) ?></p>
+                    <a href="#"><a class="nav-link" href="bien.php?id=<?php echo($bien['id_bien'])?>"/>Voir l'annonce</a>
                 </div>
+                <?php } ?>
             </div>
-            <br>
-            <br>
-            <div class="card" style="width: 18rem;">
-                <img src="./Images/appartement.jpg" class="card-img-top" alt="appartement">
-                <div class="card-body">
-                    <h5 class="card-title"><?php echo($annonce['titre']) ?></h5>
-                    <p class="card-text"><?php echo($annonce['lieux']) ?></p>
-                    <p class="card-text"><?php echo($annonce['description']) ?></p>
-                    <a href="#"><a class="nav-link" href="bien.php"/>Voir l'annonce</a>
-                </div>
-            </div>
-            <br>
-            <br>
-            <div class="card" style="width: 18rem;">
-                <img src="./Images/appartement.jpg" class="card-img-top" alt="appartement">
-                <div class="card-body">
-                    <h5 class="card-title">Appartement (+lieu)</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#"><a class="nav-link" href="bien.php"/>Voir l'annonce</a>
-                </div>
-            </div>
-        </div>
-        <br>
-        <br>
-        <div class="card-deck">
-            <div class="card" style="width: 18rem;">
-                <img src="./Images/appartement.jpg" class="card-img-top" alt="appartement">
-                <div class="card-body">
-                    <h5 class="card-title">Appartement (+lieu)</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#"><a class="nav-link" href="bien.php"/>Voir l'annonce</a>
-                </div>
-            </div>
-            <br>
-            <br>
-            <div class="card" style="width: 18rem;">
-                <img src="./Images/appartement.jpg" class="card-img-top" alt="appartement">
-                <div class="card-body">
-                    <h5 class="card-title">Appartement (+lieu)</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#"><a class="nav-link" href="bien.php"/>Voir l'annonce</a>
-                </div>
-            </div>
-            <br>
-            <br>
-            <div class="card" style="width: 18rem;">
-                <img src="./Images/appartement.jpg" class="card-img-top" alt="appartement">
-                <div class="card-body">
-                    <h5 class="card-title">Appartement (+lieu)</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#"><a class="nav-link" href="bien.php"/>Voir l'annonce</a>
-                </div>
-            </div>
-        </div>
-        <br>
-        <br>
-        <div class="card-deck">
-            <div class="card" style="width: 18rem;">
-                <img src="./Images/appartement.jpg" class="card-img-top" alt="appartement">
-                <div class="card-body">
-                    <h5 class="card-title">Appartement (+lieu)</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#"><a class="nav-link" href="bien.php"/>Voir l'annonce</a>
-                </div>
-            </div>
-            <br>
-            <br>
-            <div class="card" style="width: 18rem;">
-                <img src="./Images/appartement.jpg" class="card-img-top" alt="appartement">
-                <div class="card-body">
-                    <h5 class="card-title">Appartement (+lieu)</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#"><a class="nav-link" href="bien.php"/>Voir l'annonce</a>
-                </div>
-            </div>
-            <br>
-            <br>
-            <div class="card" style="width: 18rem;">
-                <img src="./Images/appartement.jpg" class="card-img-top" alt="appartement">
-                <div class="card-body">
-                    <h5 class="card-title">Appartement (+lieu)</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#"><a class="nav-link" href="bien.php"/>Voir l'annonce</a>
-                </div>
-            </div>
-        </div>
-    </div>
     </div>
 
 <?php require_once '../views/layout/footer.php';

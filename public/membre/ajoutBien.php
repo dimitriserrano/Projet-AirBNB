@@ -3,37 +3,13 @@ require_once '../../views/layout/header.php';
 require_once '../../functions/db.php';
 require_once '../../functions/insertionBien.php';
 
-$pdo = getPdo();
-
-if (!empty($_POST['nom']) && !empty($_POST['lieux']) && !empty($_POST['dates']) && !empty($_POST['prix']) && !empty($_POST['description']) && !empty($_POST['places']) && !empty($_POST['lit']) && !empty($_POST['photo'])) {
-    $nom = $_POST['nom'];
-    $lieux = $_POST['lieux'];
-    $dates = $_POST['dates'];
-    $prix = $_POST['prix'];
-    $description = $_POST['description'];
-    $places = $_POST['places'];
-    $lit = $_POST['lit'];
-    $photo = '';
-    $insert = insertBien($nom, $lieux, $dates, $prix, $description, $places, $lit, $photo);
-}
-
 ?>
 
 <div class="container">
     <br>
     <h2>Ajouter</h2>
 
-    <?php if ($insert) { ?>
-        <div class="alert alert-success" role="alert">
-            Votre annonce a bien été enregistrée !
-        </div>
-    <?php } ?>
 
-    <?php if ($insert === false) { ?>
-        <div class="alert alert-success" role="alert">
-            Une erreur est survenue !
-        </div>
-    <?php } ?>
 
     <br>
     <form method="POST">
@@ -58,6 +34,10 @@ if (!empty($_POST['nom']) && !empty($_POST['lieux']) && !empty($_POST['dates']) 
             <input type="text" class="form-control" id="prix" name="prix" placeholder="Entrez le prix pour la réservation de votre bien...">
         </div>
         <div class="form-group">
+            <label for="exampleFormControlInput1">Lit</label>
+            <input type="text" class="form-control" id="lit" name="lit" placeholder="Entrez le prix pour la réservation de votre bien...">
+        </div>
+        <div class="form-group">
             <label for="exampleFormControlFile1">Photo du bien</label>
             <input type="file" class="form-control-file" id="photo" name="photo">
         </div>
@@ -66,4 +46,39 @@ if (!empty($_POST['nom']) && !empty($_POST['lieux']) && !empty($_POST['dates']) 
 </div>
 
 <?php
+
+
+$pdo = getPdo();
+
+$id_utilisateur = $_SESSION['user_id'];
+//$insertion = get($id_utilisateur);
+
+if (!empty($_POST['titre']) && !empty($_POST['lieux']) && !empty($_POST['dates']) && !empty($_POST['prix']) && !empty($_POST['description']) && !empty($_POST['places']) && !empty($_POST['lit']) && !empty($_POST['photo'])) {
+    $titre = $_POST['titre'];
+    $lieux = $_POST['lieux'];
+    $dates = $_POST['dates'];
+    $prix = $_POST['prix'];
+    $description = $_POST['description'];
+    $places = $_POST['places'];
+    $lit = $_POST['lit'];
+    $photo = '';
+    $insertion = insertBien($titre, $lieux, $dates, $prix, $description, $places, $lit, $photo);
+
+    if (isset($_FILES['photo']) && !empty($_FILES['photo'])) {
+        // on met le fichier dans une variable pour une meilleure lisibilité
+        $file = $_FILES['photo'];
+
+        // On récupère le nom du fichier
+        $filename = $file['name'];
+
+        // On construit le chemin de destination
+        $destination = __DIR__ . "/Images/" . $filename;
+
+        // On bouge le fichier temporaire dans la destination
+        if (move_uploaded_file($file['tmp_name'], $destination)) {
+            echo $filename . " Correctement enregistré<br />";
+        }
+    }
+}
+
 require_once '../../views/layout/footer.php'; ?>

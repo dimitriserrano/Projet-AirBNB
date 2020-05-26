@@ -1,8 +1,9 @@
 <?php require_once '../views/layout/header.php';
 require_once '../functions/disponibilite.php';
+require_once '../functions/donnéeAnnonce.php';
 
-$id_utilisateur = $_SESSION['user_id'];
-$bien = getDisponibilite($id_utilisateur);
+$id_bien = $_GET['id'];
+$bien = getAnnonce($id_bien);
 
 ?>
 
