@@ -22,6 +22,7 @@ $annonce = getDisponibilites();
                     <h5 class="card-title"><?php echo($bien['titre']) ?></h5>
                     <p class="card-text"><?php echo($bien['lieux']) ?></p>
                     <p class="card-text"><?php echo($bien['description']) ?></p>
+                    <p class="card-text"><?php echo($bien['prix']) ?> €</p>
                     <a href="#"><a class="nav-link" href="bien.php?id=<?php echo($bien['id_bien'])?>"/>Voir l'annonce</a>
                 </div>
                 <?php } ?>

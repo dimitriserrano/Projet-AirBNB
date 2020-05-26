@@ -23,13 +23,14 @@ $annonce = getDisponibilite($id_utilisateur);
     <p>Votre adresse mail : <?php echo($profil['mail']) ?></p>
     <p>Mon argent : <?php echo($profil['solde']) ?> €</p>
     <br>
+    <h3>Mes annonces :</h3>
+    <br>
     <div>
         <button type="submit"><a class="nav-link" href="ajoutBien.php"></a>Ajouter</button>
     </div>
     <div>
         <button type="submit"><a class="nav-link" href="modifBien.php"></a>Modifier</button>
     </div>
-    <h3>Mes annonces :</h3>
     <br>
     <br>
     <div class="row">
@@ -42,6 +43,7 @@ $annonce = getDisponibilite($id_utilisateur);
                             <h5 class="card-title"><?php echo($bien['titre']) ?></h5>
                             <p class="card-text"><?php echo($bien['lieux']) ?></p>
                             <p class="card-text"><?php echo($bien['description']) ?></p>
+                            <p class="card-text"><?php echo($bien['prix']) ?> €</p>
                             <a href="#"><a class="nav-link" href="../bien.php?id=<?php echo($bien['id_bien']) ?>"/>Voir l'annonce</a>
                         </div>
                     <?php } ?>

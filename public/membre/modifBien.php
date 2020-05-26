@@ -10,44 +10,7 @@ require_once '../../views/layout/header.php';
         <h1>Modifier mon annonce</h1>
         <br>
 
-        <?php //if (!isset($_GET['id_bien'])) { ?>
-            <!--<div class="alert alert-danger" role="alert">
-                Paramètre manquant : id
-            </div>-->
-            <?php
-            //exit;
-        //}
 
-        $id_bien = $_GET['id_bien'];
-
-        if (isset($_POST['titre']) &&isset($_POST['lieux']) && isset($_POST['dates']) && isset($_POST['prix']) && isset($_POST['description']) && isset($_POST['places']) && isset($_POST['lit'])  && isset($_POST['photo'])) {
-            $titre = $_POST['titre'];
-            $lieux = $_POST['lieux'];
-            $dates = $_POST['dates'];
-            $prix = $_POST['prix'];
-            $description = $_POST['description'];
-            $places = $_POST['places'];
-            $lit = $_POST['lit'];
-            $photo = $_POST['photo'];
-
-            $update = updateBien(
-                $id_bien,
-                $titre,
-                $lieux,
-                $dates,
-                $prix,
-                $description,
-                $places,
-                $lit,
-                $photo
-            );
-
-            var_dump($update);
-        }
-
-        $disponibilites = getDisponibilite($id_bien);
-
-        ?>
         <form method="POST">
             <div class="form-group">
                 <label for="exampleFormControlInput1">Titre</label>
