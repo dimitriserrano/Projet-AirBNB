@@ -1,5 +1,4 @@
 <?php require_once '../views/layout/header.php';
-require_once '../functions/disponibilite.php';
 require_once '../functions/donnéeAnnonce.php';
 
 $id_bien = $_GET['id'];

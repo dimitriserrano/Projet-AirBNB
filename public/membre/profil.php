@@ -26,21 +26,26 @@ $annonce = getDisponibilite($id_utilisateur);
     <div>
         <button type="submit"><a class="nav-link" href="ajoutBien.php"></a>Ajouter</button>
     </div>
+    <div>
+        <button type="submit"><a class="nav-link" href="modifBien.php"></a>Modifier</button>
+    </div>
     <h3>Mes annonces :</h3>
     <br>
     <br>
     <div class="row">
         <div class="card-deck">
-            <div class="card" style="width: 18rem;">
-                <?php foreach ($annonce as $bien) { ?>
-                <img src="../Images/appartement.jpg" class="card-img-top" alt="appartement">
-                <div class="card-body">
-                    <h5 class="card-title"><?php echo($bien['titre']) ?></h5>
-                    <p class="card-text"><?php echo($bien['lieux']) ?></p>
-                    <p class="card-text"><?php echo($bien['description']) ?></p>
-                    <a href="#"><a class="nav-link" href="../bien.php"/>Voir l'annonce</a>
+            <div class="col-sm-8">
+                <div class="card" style="width: 18rem;">
+                    <?php foreach ($annonce as $bien) { ?>
+                        <img src="../Images/appartement.jpg" class="card-img-top" alt="appartement">
+                        <div class="card-body">
+                            <h5 class="card-title"><?php echo($bien['titre']) ?></h5>
+                            <p class="card-text"><?php echo($bien['lieux']) ?></p>
+                            <p class="card-text"><?php echo($bien['description']) ?></p>
+                            <a href="#"><a class="nav-link" href="../bien.php?id=<?php echo($bien['id_bien']) ?>"/>Voir l'annonce</a>
+                        </div>
+                    <?php } ?>
                 </div>
-                <?php } ?>
             </div>
         </div>
     </div>
