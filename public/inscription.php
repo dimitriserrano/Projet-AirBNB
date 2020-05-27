@@ -23,7 +23,11 @@ require_once '../views/layout/header.php';
         </div>
         <div class="form-group">
             <label for="mdp">Mot de passe </label>
-            <input type="password" class="form-control" id="mdp" name="mdp" placeholder="Entrez votre mot de passe...">
+            <input type="password" class="form-control" id="mdp1" name="mdp1" placeholder="Entrez votre mot de passe...">
+        </div>
+        <div class="form-group">
+            <label for="mdp">Confirmation mot de passe </label>
+            <input type="password" class="form-control" id="mdp2" name="mdp2" placeholder="Confirmer votre mot de passe...">
         </div>
         <div class="form-group">
             <label for="photo">Photo de profil </label>
@@ -42,32 +46,31 @@ require_once '../views/layout/header.php';
 
 $pdo=getPdo();
 
-if (!empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['mail']) && !empty($_POST['mdp'])) {
-    $solde = 5000;
-    $nom = $_POST['nom'];
-    $prenom = $_POST['prenom'];
-    $mail = $_POST['mail'];
-    $mdp = $_POST['mdp'];
+if (!empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['mail']) && !empty($_POST['mdp1']) && !empty($_POST['mdp2'])) {
+    if ($_POST['mdp1'] == $_POST['mdp2']) {
+        $solde = 5000;
+        $nom = $_POST['nom'];
+        $prenom = $_POST['prenom'];
+        $mail = $_POST['mail'];
+        $mdp = $_POST['mdp1'];
 
-    if (isset($_FILES['photo']) && !empty($_FILES['photo'])) {
-        // on met le fichier dans une variable pour une meilleure lisibilité
-        $file = $_FILES['photo'];
+        if (isset($_FILES['photo']) && !empty($_FILES['photo'])) {
+            // on met le fichier dans une variable pour une meilleure lisibilité
+            $file = $_FILES['photo'];
 
-        // On récupère le nom du fichier
-        $filename = $file['name'];
+            // On récupère le nom du fichier
+            $filename = $file['name'];
 
-        // On construit le chemin de destination
-        $destination = __DIR__ . "/Images/" . $filename;
+            // On construit le chemin de destination
+            $destination = __DIR__ . "/Images/" . $filename;
 
-        // On bouge le fichier temporaire dans la destination
-        if (move_uploaded_file($file['tmp_name'], $destination)) {
-            echo $filename . " Correctement enregistré<br />";
-            $ajout = ajout($solde, $nom, $prenom, $mail, $mdp, $filename);
+            // On bouge le fichier temporaire dans la destination
+            if (move_uploaded_file($file['tmp_name'], $destination)) {
+                echo $filename . " Correctement enregistré<br />";
+                $ajout = ajout($solde, $nom, $prenom, $mail, $mdp, $filename);
+            }
         }
     }
 }
-
-
-
 
 require_once '../views/layout/footer.php';
