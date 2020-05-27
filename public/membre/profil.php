@@ -26,7 +26,7 @@ $annonce = getDisponibilite($id_utilisateur);
     <h3>Mes annonces :</h3>
     <br>
     <div>
-        <input type="submit" value="Ajouter"><a class="nav-link" href="ajoutBien.php">Voir l'annonce</a>
+        <input type="submit" value="Ajouter"><a class="nav-link" href="ajoutBien.php">Ajouter</a>
     </div>
     <br>
     <div class="card-group">
@@ -40,7 +40,7 @@ $annonce = getDisponibilite($id_utilisateur);
                     <p class="card-text"><?php echo($bien['prix']) ?></p>
                     <a href="#"><a class="nav-link" href="../bien.php?id=<?php echo($bien['id_bien'])?>"/>Voir l'annonce</a>
                     <a href="#"><a class="nav-link" href="modifBien.php?id=<?php echo($bien['id_bien'])?>"/>Modifier</a>
-                    <a href="#"><a class="nav-link" href=".php?id=<?php echo($bien['id_bien'])?>"/>Suppression</a>
+                    <a href="#"><a class="nav-link" href="../../functions/deleteBien.php?id=<?php echo($bien['id_bien'])?>"/>Suppression</a>
                 </div>
             </div>
         <?php } ?>
