@@ -10,49 +10,7 @@ require_once '../../views/layout/header.php';
         <h1>Modifier mon annonce</h1>
         <br>
 
-        <?php $id_bien = $_GET['id_bien'];
-
-        if (isset($_POST['titre']) && isset($_POST['lieux']) && isset($_POST['prix']) && isset($_POST['description']) && isset($_POST['places']) && isset($_POST['lit'])) {
-            $titre = $_POST['titre'];
-            $lieux = $_POST['lieux'];
-            $prix = $_POST['prix'];
-            $description = $_POST['description'];
-            $places = $_POST['places'];
-            $lit = $_POST['lit'];
-
-            if (isset($_FILES['photo']) && !empty($_FILES['photo'])) {
-                // on met le fichier dans une variable pour une meilleure lisibilité
-                $file = $_FILES['photo'];
-
-                // On récupère le nom du fichier
-                $filename = $file['name'];
-
-                // On construit le chemin de destination
-                $destination = __DIR__ . "../../Images/" . $filename;
-
-                // On bouge le fichier temporaire dans la destination
-                if (move_uploaded_file($file['tmp_name'], $destination)) {
-                    echo $filename . " Correctement enregistré<br />";
-                    $insertion = updateBien($id_bien, $lieux, $prix, $description, $places, $lit, $filename);
-                }
-            }
-
-            $update = updateBien(
-                $id_bien,
-                $titre,
-                $lieux,
-                $prix,
-                $description,
-                $places,
-                $lit,
-                $filename,
-            );
-            var_dump($update);
-        }
-
-        ?>
-
-        <form method="POST">
+        <form method="POST" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="exampleFormControlInput1">Titre</label>
                 <input type="text" class="form-control" id="titre" name="titre" placeholder="Entrez le titre de votre bien...">
@@ -74,11 +32,44 @@ require_once '../../views/layout/header.php';
                 <input type="text" class="form-control" id="prix" name="prix" placeholder="Entrez le prix pour la réservation de votre bien...">
             </div>
             <div class="form-group">
+                <label for="exampleFormControlInput1">Lit</label>
+                <input type="text" class="form-control" id="lit" name="lit" placeholder="Entrez le nombre de lit présent dans votre bien...">
+            </div>
+            <div class="form-group">
                 <label for="exampleFormControlFile1">Photo du bien</label>
                 <input type="file" class="form-control-file" id="photo" name="photo">
             </div>
-            <a href="#"><a class="nav-link"/>Modifier</a>
+            <input type="submit" value="Modifier">
         </form>
     </div>
 
-<?php require_once '../../views/layout/footer.php'; ?>
+<?php $id_bien = $_GET['id'];
+
+        if (!empty($_POST['titre']) && !empty($_POST['lieux']) && !empty($_POST['prix']) && !empty($_POST['description']) && !empty($_POST['places']) && !empty($_POST['lit'])) {
+            $titre = $_POST['titre'];
+            $lieux = $_POST['lieux'];
+            $prix = $_POST['prix'];
+            $description = $_POST['description'];
+            $places = $_POST['places'];
+            $lit = $_POST['lit'];
+            echo ("sdqfwefd");
+
+            if (isset($_FILES['photo']) && !empty($_FILES['photo'])) {
+                // on met le fichier dans une variable pour une meilleure lisibilité
+                $file = $_FILES['photo'];
+
+                // On récupère le nom du fichier
+                $filename = $file['name'];
+
+                // On construit le chemin de destination
+                $destination = __DIR__ . "../../Images/" . $filename;
+
+                // On bouge le fichier temporaire dans la destination
+                if (move_uploaded_file($file['tmp_name'], $destination)) {
+                    echo $filename . " Correctement enregistré<br />";
+                    $insertion = updateBien($id_bien, $titre, $lieux, $prix, $description, $places, $lit, $filename);
+                }
+            }
+        }
+
+require_once '../../views/layout/footer.php'; ?>

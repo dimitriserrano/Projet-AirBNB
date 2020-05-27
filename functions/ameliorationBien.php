@@ -6,5 +6,5 @@ function updateBien(int $id_bien, string $titre, string $lieux, string $prix, st
     $pdo = getPdo();
     $query = "UPDATE annonce SET titre = :titre, lieux = :lieux, prix = :prix, description = :description, places = :places, lit = :lit, photo = :photo WHERE id_bien = :id_bien";
     $stmt = $pdo->prepare($query);
-    return $stmt->execute(array('id_bien' => $id_bien, ':titre' => $titre, ':lieux' => $lieux, ':prix' => $prix, ':description' => $description, 'places' => $places, ':lit' => $lit, ':photo' => $photo, ':id_bien' => $id_bien));
+    return $stmt->execute(array(':titre' => $titre, ':lieux' => $lieux, ':prix' => $prix, ':description' => $description, 'places' => $places, ':lit' => $lit, ':photo' => $photo, ':id_bien' => $id_bien));
 }

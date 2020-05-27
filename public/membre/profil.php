@@ -26,31 +26,24 @@ $annonce = getDisponibilite($id_utilisateur);
     <h3>Mes annonces :</h3>
     <br>
     <div>
-        <button type="submit" style="padding-top: 0px"><a class="nav-link" href="ajoutBien.php"></a>Ajouter</button>
+        <input type="submit" value="Ajouter"><a class="nav-link" href="ajoutBien.php">Voir l'annonce</a>
     </div>
     <br>
-    <div>
-        <button type="submit" style="padding-top: 0px"><a class="nav-link" href="modifBien.php"></a>Modifier</button>
-    </div>
-    <br>
-    <br>
-    <div class="row">
-        <div class="card-deck">
-            <div class="col-sm-8">
-                <div class="card" style="width: 18rem;">
-                    <?php foreach ($annonce as $bien) { ?>
-                        <img src="../Images/appartement.jpg" class="card-img-top" alt="appartement">
-                        <div class="card-body">
-                            <h5 class="card-title"><?php echo($bien['titre']) ?></h5>
-                            <p class="card-text"><?php echo($bien['lieux']) ?></p>
-                            <p class="card-text"><?php echo($bien['description']) ?></p>
-                            <p class="card-text"><?php echo($bien['prix']) ?> €</p>
-                            <a href="#"><a class="nav-link" href="../bien.php?id=<?php echo($bien['id_bien']) ?>"/>Voir l'annonce</a>
-                        </div>
-                    <?php } ?>
+    <div class="card-group">
+        <?php foreach ($annonce as $bien) { ?>
+            <div class="card" style="width: 18em;">
+                <img src="../Images/<?php echo($bien['photo']) ?>" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title"><?php echo($bien['titre']) ?></h5>
+                    <p class="card-text"><?php echo($bien['lieux']) ?></p>
+                    <p class="card-text"><?php echo($bien['description']) ?></p>
+                    <p class="card-text"><?php echo($bien['prix']) ?></p>
+                    <a href="#"><a class="nav-link" href="../bien.php?id=<?php echo($bien['id_bien'])?>"/>Voir l'annonce</a>
+                    <a href="#"><a class="nav-link" href="modifBien.php?id=<?php echo($bien['id_bien'])?>"/>Modifier</a>
+                    <a href="#"><a class="nav-link" href=".php?id=<?php echo($bien['id_bien'])?>"/>Suppression</a>
                 </div>
             </div>
-        </div>
+        <?php } ?>
     </div>
 </div>
 
