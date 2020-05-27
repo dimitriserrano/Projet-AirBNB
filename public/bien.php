@@ -15,25 +15,27 @@ $bien = getAnnonce($id_bien);
         <div class="card-deck">
             <div class="card" style="width: 18rem;">
                 <img src="./Images/<?php echo($bien['photo']) ?>" class="card-img-top" alt="appartement">
-                <img src="./Images/appartement2.jpg" class="card-img-top" alt="autreAppartement">
+                <img src="./Images/<?php echo($bien['photo']) ?>" class="card-img-top" alt="autreAppartement">
             </div>
             <br>
             <br>
             <div class="card" style="width: 18rem;">
-                <img src="./Images/appartement.jpg" class="card-img-top" alt="appartement">
-                <img src="./Images/appartement2.jpg" class="card-img-top" alt="autreAppartement">
+                <img src="./Images/<?php echo($bien['photo']) ?>" class="card-img-top" alt="appartement">
+                <img src="./Images/<?php echo($bien['photo']) ?>" class="card-img-top" alt="autreAppartement">
             </div>
             <br>
             <br>
             <div class="card" style="width: 18rem;">
-                <img src="./Images/appartement.jpg" class="card-img-top" alt="appartement">
-                <img src="./Images/appartement2.jpg" class="card-img-top" alt="autreAppartement">
+                <img src="./Images/<?php echo($bien['photo']) ?>" class="card-img-top" alt="appartement">
+                <img src="./Images/<?php echo($bien['photo']) ?>" class="card-img-top" alt="autreAppartement">
             </div>
         </div>
         <br>
         <h3><?php echo($bien['titre']) ?></h3>
         <br>
-        <h5><?php echo($bien['lieux']) ?></h5>
+        <h3><?php echo($bien['lieux']) ?></h3>
+        <br>
+        <h3>Prix du bien à la nuit : <?php echo($bien['prix']) ?> € </h3>
 
         <div class="container">
             <br>

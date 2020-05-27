@@ -21,15 +21,16 @@ $annonce = getDisponibilite($id_utilisateur);
     <p>Nom : <?php echo($profil['nom']) ?></p>
     <p>Prénom : <?php echo($profil['prenom']) ?></p>
     <p>Votre adresse mail : <?php echo($profil['mail']) ?></p>
-    <p>Mon argent : <?php echo($profil['solde']) ?> €</p>
+    <p>Mon argent : <?php echo($profil['solde']) ?> € </p>
     <br>
     <h3>Mes annonces :</h3>
     <br>
     <div>
-        <button type="submit"><a class="nav-link" href="ajoutBien.php"></a>Ajouter</button>
+        <button type="submit" style="padding-top: 0px"><a class="nav-link" href="ajoutBien.php"></a>Ajouter</button>
     </div>
+    <br>
     <div>
-        <button type="submit"><a class="nav-link" href="modifBien.php"></a>Modifier</button>
+        <button type="submit" style="padding-top: 0px"><a class="nav-link" href="modifBien.php"></a>Modifier</button>
     </div>
     <br>
     <br>

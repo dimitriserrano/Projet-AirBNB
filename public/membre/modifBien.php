@@ -10,6 +10,47 @@ require_once '../../views/layout/header.php';
         <h1>Modifier mon annonce</h1>
         <br>
 
+        <?php $id_bien = $_GET['id_bien'];
+
+        if (isset($_POST['titre']) && isset($_POST['lieux']) && isset($_POST['prix']) && isset($_POST['description']) && isset($_POST['places']) && isset($_POST['lit'])) {
+            $titre = $_POST['titre'];
+            $lieux = $_POST['lieux'];
+            $prix = $_POST['prix'];
+            $description = $_POST['description'];
+            $places = $_POST['places'];
+            $lit = $_POST['lit'];
+
+            if (isset($_FILES['photo']) && !empty($_FILES['photo'])) {
+                // on met le fichier dans une variable pour une meilleure lisibilité
+                $file = $_FILES['photo'];
+
+                // On récupère le nom du fichier
+                $filename = $file['name'];
+
+                // On construit le chemin de destination
+                $destination = __DIR__ . "../../Images/" . $filename;
+
+                // On bouge le fichier temporaire dans la destination
+                if (move_uploaded_file($file['tmp_name'], $destination)) {
+                    echo $filename . " Correctement enregistré<br />";
+                    $insertion = updateBien($id_bien, $lieux, $prix, $description, $places, $lit, $filename);
+                }
+            }
+
+            $update = updateBien(
+                $id_bien,
+                $titre,
+                $lieux,
+                $prix,
+                $description,
+                $places,
+                $lit,
+                $filename,
+            );
+            var_dump($update);
+        }
+
+        ?>
 
         <form method="POST">
             <div class="form-group">
@@ -36,6 +77,7 @@ require_once '../../views/layout/header.php';
                 <label for="exampleFormControlFile1">Photo du bien</label>
                 <input type="file" class="form-control-file" id="photo" name="photo">
             </div>
+            <a href="#"><a class="nav-link"/>Modifier</a>
         </form>
     </div>
 

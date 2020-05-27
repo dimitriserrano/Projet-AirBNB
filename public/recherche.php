@@ -13,20 +13,19 @@ $annonce = getDisponibilites();
     <br>
     <br>
 
-    <div class="row">
-        <div class="card-deck">
-            <div class="card" style="width: 18rem;">
-                <?php foreach ($annonce as $bien) { ?>
-                <img src="./Images/appartement.jpg" class="card-img-top" alt="appartement">
+    <div class="card-group">
+        <?php foreach ($annonce as $bien) { ?>
+        <div class="card" style="width: 18em;">
+                <img src="./Images/<?php echo($bien['photo']) ?>" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title"><?php echo($bien['titre']) ?></h5>
                     <p class="card-text"><?php echo($bien['lieux']) ?></p>
                     <p class="card-text"><?php echo($bien['description']) ?></p>
-                    <p class="card-text"><?php echo($bien['prix']) ?> €</p>
+                    <p class="card-text"><?php echo($bien['prix']) ?></p>
                     <a href="#"><a class="nav-link" href="bien.php?id=<?php echo($bien['id_bien'])?>"/>Voir l'annonce</a>
                 </div>
-                <?php } ?>
-            </div>
+        </div>
+        <?php } ?>
     </div>
 
 <?php require_once '../views/layout/footer.php';
