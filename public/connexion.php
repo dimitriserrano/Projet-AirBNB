@@ -22,7 +22,7 @@ if (!empty($_POST['mail']) && !empty($_POST['mdp']) && isset($_POST['mail']) && 
     if ($row && password_verify($mdp, $row['mdp'])) {
         $_SESSION['state'] = 'connected';
         $_SESSION['user_id'] = $row['id_utilisateur'];
-        redirect('../membre/profil.php');
+        redirect('../membre/profil.php?id='.$row['id_utilisateur']);
     } else {
         $error = true;
     }

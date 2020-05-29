@@ -52,7 +52,6 @@ require_once '../../views/layout/header.php';
             $description = $_POST['description'];
             $places = $_POST['places'];
             $lit = $_POST['lit'];
-            echo ("sdqfwefd");
 
             if (isset($_FILES['photo']) && !empty($_FILES['photo'])) {
                 // on met le fichier dans une variable pour une meilleure lisibilité

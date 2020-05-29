@@ -16,6 +16,9 @@ $annonce = getDisponibilite($id_utilisateur);
 <div class="container">
     <br>
     <h1>Mon profil </h1>
+    <div>
+        <a class="nav-link" href="./modifProfil.php?id=<?php echo($bien['id_bien'])?>">Modifier mon profil</a>
+    </div>
     <br>
     <img src="../Images/<?php echo($profil['photo'])?>" style="width:300px;height:450px"/>
     <br>
@@ -43,7 +46,7 @@ $annonce = getDisponibilite($id_utilisateur);
                     <p class="card-text"><?php echo($bien['description']) ?></p>
                     <p class="card-text"><?php echo($bien['prix']) ?></p>
                     <a class="nav-link" href="../bien.php?id=<?php echo($bien['id_bien'])?>">Voir l'annonce</a>
-                    <a class="nav-link" href="modifBien.php?id=<?php echo($bien['id_bien'])?>">Modifier</a>
+                    <a class="nav-link" href="modifBien.php?id=<?php echo($bien['id_bien'])?>">Modifier mon bien</a>
                     <a class="nav-link" href="../../functions/deleteBien.php?id=<?php echo($bien['id_bien'])?>">Suppression</a>
                 </div>
             </div>
