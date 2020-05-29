@@ -35,11 +35,11 @@ require_once '../../functions/insertionBien.php';
         </div>
         <div class="form-group">
             <label for="exampleFormControlInput1">Lit</label>
-            <input type="text" class="form-control" id="lit" name="lit" placeholder="Entrez le prix pour la réservation de votre bien...">
+            <input type="text" class="form-control" id="lit" name="lit" placeholder="Entrez le nombre de lit dans votre bien...">
         </div>
         <div class="form-group">
-            <label for="exampleFormControlFile1">Photo du bien</label>
-            <input type="file" class="form-control-file" id="photo" name="photo">
+            <label for="exampleFormControlFile1">Photo du bien</label><br>
+            <input type="file" name="photo[]" multiple id="photo">
         </div>
         <button type="submit" class="btn btn-primary">Ajouter</button>
     </form>
@@ -60,22 +60,27 @@ if (!empty($_POST['titre']) && !empty($_POST['lieux']) && !empty($_POST['prix'])
     $places = $_POST['places'];
     $lit = $_POST['lit'];
 
-    if (isset($_FILES['photo']) && !empty($_FILES['photo'])) {
-        // on met le fichier dans une variable pour une meilleure lisibilité
-        $file = $_FILES['photo'];
+    $photo = '';
+    if (isset($_FILES['photo'])) {
+        foreach ($_FILES['photo']['error'] as $key => $error) {
+            if ($error == UPLOAD_ERR_OK) {
+                $tmp_name = $_FILES["photo"]["tmp_name"][$key];
+                $filename = $_FILES["photo"]["name"][$key];
+                $destination = __DIR__ . "../../Images/" . $filename;
+                if ($photo == ''){
+                    $photo = $filename;
+                }else{
+                    $photo = $photo ."," .$filename;
+                }
 
-        // On récupère le nom du fichier
-        $filename = $file['name'];
-
-        // On construit le chemin de destination
-        $destination = __DIR__ . "../../Images/" . $filename;
-
-        // On bouge le fichier temporaire dans la destination
-        if (move_uploaded_file($file['tmp_name'], $destination)) {
-            echo $filename . " Correctement enregistré<br />";
-            $insertion = insertBien($id_utilisateur, $titre, $lieux, $prix, $description, $places, $lit, $filename);
+                if (move_uploaded_file($tmp_name, $destination)) {
+                    echo $filename . " Correctement enregistré<br />";
+                }
+            }
         }
+        $insertion = insertBien($id_utilisateur, $titre, $lieux, $prix, $description, $places, $lit, $photo);
     }
 }
+
 
 require_once '../../views/layout/footer.php'; ?>

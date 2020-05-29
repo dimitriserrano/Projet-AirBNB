@@ -10,6 +10,7 @@ $profil = getProfil($id_utilisateur);
 $annonce = getDisponibilite($id_utilisateur);
 
 
+
 ?>
 
 <div class="container">
@@ -30,9 +31,12 @@ $annonce = getDisponibilite($id_utilisateur);
     </div>
     <br>
     <div class="card-group">
-        <?php foreach ($annonce as $bien) { ?>
+        <?php foreach ($annonce as $bien) {
+            $photo = $bien['photo'];
+            $photo = explode(',', $photo);
+            $photo = $photo[0];?>
             <div class="card" style="width: 18em;">
-                <img src="../Images/<?php echo($bien['photo']) ?>" class="card-img-top" alt="...">
+                <img src="../Images/<?php echo $photo ?>" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title"><?php echo($bien['titre']) ?></h5>
                     <p class="card-text"><?php echo($bien['lieux']) ?></p>

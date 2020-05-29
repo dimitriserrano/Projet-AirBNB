@@ -4,6 +4,9 @@ require_once '../functions/donnéeAnnonce.php';
 $id_bien = $_GET['id'];
 $bien = getAnnonce($id_bien);
 
+$photo = $bien['photo'];
+$photo = explode(',', $photo);
+
 ?>
 
 <div class="container">
@@ -14,20 +17,9 @@ $bien = getAnnonce($id_bien);
         <br>
         <div class="card-deck">
             <div class="card" style="width: 18rem;">
-                <img src="./Images/<?php echo($bien['photo']) ?>" class="card-img-top" alt="appartement">
-                <img src="./Images/<?php echo($bien['photo']) ?>" class="card-img-top" alt="autreAppartement">
-            </div>
-            <br>
-            <br>
-            <div class="card" style="width: 18rem;">
-                <img src="./Images/<?php echo($bien['photo']) ?>" class="card-img-top" alt="appartement">
-                <img src="./Images/<?php echo($bien['photo']) ?>" class="card-img-top" alt="autreAppartement">
-            </div>
-            <br>
-            <br>
-            <div class="card" style="width: 18rem;">
-                <img src="./Images/<?php echo($bien['photo']) ?>" class="card-img-top" alt="appartement">
-                <img src="./Images/<?php echo($bien['photo']) ?>" class="card-img-top" alt="autreAppartement">
+                <?php foreach ($photo as $annonce) { ?>
+                    <img src="./Images/<?php echo($annonce) ?>" class="card-img-top" alt="appartement" style="width:300px;height:450px">
+                <?php } ?>
             </div>
         </div>
         <br>
