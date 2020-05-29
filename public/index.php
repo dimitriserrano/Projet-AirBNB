@@ -1,5 +1,8 @@
 <?php require_once '../views/layout/header.php';
 require_once '../functions/search.php';
+require_once '../functions/disponibilite.php';
+
+$annonce = getDisponibilites();
 
 $search = $_GET['search'] ?? null;
 
@@ -54,26 +57,35 @@ if(!empty($_POST['prixmini']) && !empty($_POST['prixmaxi']) && !empty($_POST['li
                     <input type="text" class="form-control" id="places" name="places" aria-describedby="prix" value="<?php echo $search; ?>">
                     <small id="places" class="form-text text-muted">Entrez le nombre de personnes qui désir voyager.</small>
                     <br>
-                    <button type="submit"><a class="nav-link" href="recherche.php"/>Rechercher</button>
                 </div>
             </form>
         </div>
     </figcaption>
 </figure>
 
-<div class="card-group">
-    <?php foreach ($recherche as $bien) { ?>
-        <div class="card" style="width: 18em;">
-            <img src="./Images/<?php echo($bien['photo']) ?>" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title"><?php echo($bien['titre']) ?></h5>
-                <p class="card-text"><?php echo($bien['lieux']) ?></p>
-                <p class="card-text"><?php echo($bien['description']) ?></p>
-                <p class="card-text"><?php echo($bien['prix']) ?></p>
-                <a href="#"><a class="nav-link" href="bien.php?id=<?php echo($bien['id_bien'])?>"/>Voir l'annonce</a>
+<div class="container">
+    <br>
+    <br>
+    <h1 style="display: flex; justify-content: center">Annonces</h1>
+    <br>
+    <br>
+
+    <div class="card-group">
+        <?php foreach ($annonce as $bien) {
+            $photo = $bien['photo'];
+            $photo = explode(',', $photo);
+            $photo = $photo[0];?>
+            <div class="card" style="width: 18em;">
+                <img src="./Images/<?php echo $photo ?>" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title"><?php echo($bien['titre']) ?></h5>
+                    <p class="card-text"><?php echo($bien['lieux']) ?></p>
+                    <p class="card-text"><?php echo($bien['description']) ?></p>
+                    <p class="card-text"><?php echo($bien['prix']) ?></p>
+                    <a href="#"><a class="nav-link" href="bien.php?id=<?php echo($bien['id_bien'])?>"/>Voir l'annonce</a>
+                </div>
             </div>
-        </div>
-    <?php } ?>
-</div>
+        <?php } ?>
+    </div>
 
 <?php require_once '../views/layout/footer.php'; ?>
