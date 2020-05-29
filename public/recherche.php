@@ -6,6 +6,7 @@ $annonce = getDisponibilites();
 
 ?>
 
+<?php var_dump($_POST); ?>
 <div class="container">
     <br>
     <br>
