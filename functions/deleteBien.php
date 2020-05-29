@@ -12,4 +12,4 @@ function deleteBien(int $id_bien): bool
 
 $id_bien = $_GET['id'];
 deleteBien($id_bien);
-//redirect('/profil.php');
+redirect('/profil.php');
