@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/db.php';
 
+//Cette fonction permettra de pouvoir ajouter une annonce depuis son profil
 function insertBien(int $id_utilisateur, string $titre, string $lieux, string $prix, string $description, string $places, string $lit, string $photo): bool
 {
     $pdo=getPdo();

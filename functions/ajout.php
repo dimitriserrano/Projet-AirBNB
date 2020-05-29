@@ -1,6 +1,7 @@
 <?php
 require_once '../functions/db.php';
 
+// Cette fonction permettra de pouvoir nous inscrire sur notre site web
 function ajout(int $solde, string $nom, string $prenom, string $mail, string $mdp, string $photo) : bool
 {
     $pdo = getPdo();

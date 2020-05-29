@@ -1,6 +1,9 @@
 <?php
+//On importe le header de notre site
 require_once '../../views/layout/header.php';
+//On importe la base de donnée de notre site
 require_once '../../functions/db.php';
+//On importe la fonction qui nous permettra d'ajouter une annonce
 require_once '../../functions/insertionBien.php';
 
 ?>
@@ -47,11 +50,13 @@ require_once '../../functions/insertionBien.php';
 
 <?php
 
-
+//On récupère notre bdd
 $pdo = getPdo();
 
+//L'utilisateur accède à sa session
 $id_utilisateur = $_SESSION['user_id'];
 
+//On déclare toutes les variables qui nous permettrons d'ajouter notre annonce
 if (!empty($_POST['titre']) && !empty($_POST['lieux']) && !empty($_POST['prix']) && !empty($_POST['description']) && !empty($_POST['places']) && !empty($_POST['lit'])) {
     $titre = $_POST['titre'];
     $lieux = $_POST['lieux'];
@@ -60,6 +65,7 @@ if (!empty($_POST['titre']) && !empty($_POST['lieux']) && !empty($_POST['prix'])
     $places = $_POST['places'];
     $lit = $_POST['lit'];
 
+    //On ajoute plusieurs photos à notre annonce
     $photo = '';
     if (isset($_FILES['photo'])) {
         foreach ($_FILES['photo']['error'] as $key => $error) {
@@ -78,9 +84,10 @@ if (!empty($_POST['titre']) && !empty($_POST['lieux']) && !empty($_POST['prix'])
                 }
             }
         }
+        //On appelle notre fonction avec toutes ces variables
         $insertion = insertBien($id_utilisateur, $titre, $lieux, $prix, $description, $places, $lit, $photo);
     }
 }
 
-
+//On importe le footer de notre site
 require_once '../../views/layout/footer.php'; ?>

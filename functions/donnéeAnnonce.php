@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/db.php';
 
+//Cette fonction permettra de récupérer les données présentes dans une annonces
 function getAnnonce(int $id_bien)
 {
     $pdo = getPdo();

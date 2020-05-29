@@ -2,6 +2,7 @@
 require_once __DIR__ . '/db.php';
 require_once './utils.php';
 
+//Cette fonction permettra de pouvoir supprimer une annonce du site web
 function deleteBien(int $id_bien): bool
 {
     $pdo = getPdo();

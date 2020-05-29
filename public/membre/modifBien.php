@@ -1,6 +1,9 @@
 <?php
+//On importe la fonction qui va nous permettre de modifier notre annonce
 require_once '../../functions/ameliorationBien.php';
+//On importe la fonction qui va nous permettre de récupérer l'annonce de l'utilisateur
 require_once '../../functions/disponibilite.php';
+//On importe le header de notre site
 require_once '../../views/layout/header.php';
 ?>
 
@@ -43,7 +46,9 @@ require_once '../../views/layout/header.php';
         </form>
     </div>
 
-<?php $id_bien = $_GET['id'];
+<?php
+//L'utilisateur accède à son annonce
+$id_bien = $_GET['id'];
 
         if (!empty($_POST['titre']) && !empty($_POST['lieux']) && !empty($_POST['prix']) && !empty($_POST['description']) && !empty($_POST['places']) && !empty($_POST['lit'])) {
             $titre = $_POST['titre'];

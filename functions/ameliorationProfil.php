@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ . '/db.php';
 
+//Cette fonction permettra de pouvoir modifier les informations sur notre compte
 function updateProfil(int $id_utilisateur, string $solde, string $nom, string $prenom, string $photo): bool
 {
     $pdo = getPdo();

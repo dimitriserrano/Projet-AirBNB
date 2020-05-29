@@ -1,6 +1,7 @@
 <?php
 require_once __DIR__ .'./db.php';
 
+//Cette fonction permettra de pouvoir faire une recherche de bien avec les différentes informations de celui-ci
 function getListe (?int $prixmini = null, ?int$prixmaxi = null, ?string $lieux = null, ?string $places = null){
     $pdo = getPdo();
     $query = "SELECT * FROM annonce";
@@ -19,6 +20,7 @@ function getListe (?int $prixmini = null, ?int$prixmaxi = null, ?string $lieux =
     return $stmt -> fetchAll(PDO::FETCH_ASSOC);
 }
 
+//Cette fonction permettra de pouvoir rechercher uniquement une ville
 function getLieux(string $lieux){
     $pdo = getPdo();
     $query = "SELECT * FROM annonce WHERE lieux LIKE :lieux";
@@ -29,6 +31,7 @@ function getLieux(string $lieux){
     return $stmt -> fetchAll(PDO::FETCH_ASSOC);
 }
 
+//Cette fonction permettra de pouvoir rechercher uniquement dans une tranche de prix
 function getPrix(string $prix){
     $pdo = getPdo();
     $query = "SELECT * FROM annonce WHERE prix LIKE :prix";
@@ -39,6 +42,7 @@ function getPrix(string $prix){
     return $stmt -> fetchAll(PDO::FETCH_ASSOC);
 }
 
+//Cette fonction permettra de pouvoir rechercher uniquement par un nombre de personne
 function getPlaces(string $places){
     $pdo = getPdo();
     $query = "SELECT * FROM annonce WHERE places LIKE :places";

@@ -1,5 +1,6 @@
 <?php
 
+//On connecte nos base de données à notre site web grâce à cette fonction
 function getPdo(): PDO
 {
     try {

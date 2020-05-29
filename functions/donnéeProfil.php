@@ -1,5 +1,6 @@
 <?php
 
+//Cette fonction permet de pouvoir récupérer les informations d'un utilisateur
 function getProfil(int $id_utilisateur)
 {
 $pdo = getPdo();
