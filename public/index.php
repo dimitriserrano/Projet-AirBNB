@@ -2,7 +2,7 @@
 require_once '../functions/search.php';
 require_once '../functions/disponibilite.php';
 
-$annonce = getDisponibilites();
+//$recherche = getDisponibilites();
 
 $search = $_GET['search'] ?? null;
 
@@ -11,7 +11,7 @@ $prixmaxi = null;
 $lieux = null;
 $places = null;
 
-if(!empty($_POST['prixmini']) && !empty($_POST['prixmaxi']) && !empty($_POST['lieux']) && !empty($_POST['places'])){
+if(isset($_POST['prixmini']) && isset($_POST['prixmaxi']) && isset($_POST['lieux']) && isset($_POST['places'])){
     $prixmini = $_POST['prixmini'];
     $prixmaxi = $_POST['prixmaxi'];
     $lieux = $_POST['lieux'];
@@ -20,10 +20,15 @@ if(!empty($_POST['prixmini']) && !empty($_POST['prixmaxi']) && !empty($_POST['li
 }else if (!empty($_POST['lieux'])){
         $lieux = $_POST['lieux'];
         $recherche = getLieux($lieux);
+        var_dump($recherche);
+}else if (!empty($_POST['places'])){
+    $places = $_POST['places'];
+    $recherche = getPlaces($places);
+    echo"dvvqsv";
 }else{
     $recherche = getListe($prixmini, $prixmaxi, $lieux, $places);
 }
-
+var_dump($_POST);
 ?>
 
 <figure>
@@ -31,7 +36,7 @@ if(!empty($_POST['prixmini']) && !empty($_POST['prixmaxi']) && !empty($_POST['li
     <figcaption>
         <div class="container" style="position:absolute;top:100px;width:300px;margin:50px">
             <h2>Réservez votre logement</h2>
-            <form method="post" action="recherche.php ">
+            <form method="post">
                 <div class="form-group" style="color:black">
                     <label for="exampleFormControlTextarea1">Où ?</label>
                     <input type="text" class="form-control" id="lieux" name="lieux" aria-describedby="lieuHelp" value="<?php echo $search; ?>">
@@ -57,6 +62,7 @@ if(!empty($_POST['prixmini']) && !empty($_POST['prixmaxi']) && !empty($_POST['li
                     <input type="text" class="form-control" id="places" name="places" aria-describedby="prix" value="<?php echo $search; ?>">
                     <small id="places" class="form-text text-muted">Entrez le nombre de personnes qui désir voyager.</small>
                     <br>
+                    <input type="submit" value="Recherche"</input>
                 </div>
             </form>
         </div>
@@ -71,7 +77,7 @@ if(!empty($_POST['prixmini']) && !empty($_POST['prixmaxi']) && !empty($_POST['li
     <br>
 
     <div class="card-group">
-        <?php foreach ($annonce as $bien) {
+        <?php foreach ($recherche as $bien) {
             $photo = $bien['photo'];
             $photo = explode(',', $photo);
             $photo = $photo[0];?>

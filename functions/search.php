@@ -34,7 +34,7 @@ function getPrix(string $prix){
     $query = "SELECT * FROM annonce WHERE prix LIKE :prix";
     $stmt =  $pdo->prepare($query);
     $stmt->execute([
-        'lieux' => "%$prix%",
+        'prix' => "%$prix%",
     ]);
     return $stmt -> fetchAll(PDO::FETCH_ASSOC);
 }
@@ -44,7 +44,7 @@ function getPlaces(string $places){
     $query = "SELECT * FROM annonce WHERE places LIKE :places";
     $stmt =  $pdo->prepare($query);
     $stmt->execute([
-        'lieux' => "%$places%",
+        'places' => "%$places%",
     ]);
     return $stmt -> fetchAll(PDO::FETCH_ASSOC);
 }
