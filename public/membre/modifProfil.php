@@ -10,15 +10,21 @@ require_once '../../views/layout/header.php';
         <br>
         <h1>Modifier mon profil</h1>
         <br>
-
+        <small>Vous devez remplir tout les champs même si vous ne souhaitez pas les changer</small>
+        <br>
+        <br>
         <form method="POST" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="exampleFormControlInput1">Nom</label>
-                <input type="text" class="form-control" id="nom" name="nom" placeholder="Entrez votre Nom de famille...">
+                <input type="text" class="form-control" id="nom" name="nom" placeholder="Changer votre nom de famille si vous le shouhaitez...">
             </div>
             <div class="form-group">
                 <label for="exampleFormControlTextarea1">Prénom</label>
-                <input class="form-control" id="prenom" name="prenom" rows="3" placeholder="Entrez votre prénom..."></input>
+                <input class="form-control" id="prenom" name="prenom" rows="3" placeholder="Changer votre prenom si vous le shouhaitez..."></input>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Adresse mail</label>
+                <input type="email" class="form-control" id="mail" name="mail" placeholder="Changer votre adresse mail si vous le shouhaitez...">
             </div>
             <div class="form-group">
                 <label for="exampleFormControlInput1">Mon argent</label>
@@ -33,11 +39,13 @@ require_once '../../views/layout/header.php';
     </div>
 
 <?php $id_utilisateur = $_SESSION['user_id'];
+$error = false;
 
-if (!empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['solde'])) {
+if (!empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['mail']) && !empty($_POST['solde'])) {
     $solde = $_POST['solde'];
     $nom = $_POST['nom'];
     $prenom = $_POST['prenom'];
+    $mail = $_POST['mail'];
 
 
     if (isset($_FILES['photo']) && !empty($_FILES['photo'])) {
@@ -53,7 +61,7 @@ if (!empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['solde'])
         // On bouge le fichier temporaire dans la destination
         if (move_uploaded_file($file['tmp_name'], $destination)) {
             echo $filename . " Correctement enregistré<br />";
-            $insertion = updateProfil($id_utilisateur, $solde, $nom, $prenom, $filename);
+            $insertion = updateProfil($id_utilisateur, $solde, $nom, $prenom, $mail, $filename);
         }
     }
 }
