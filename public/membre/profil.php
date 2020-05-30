@@ -17,7 +17,7 @@ $annonce = getDisponibilite($id_utilisateur);
     <br>
     <h1>Mon profil </h1>
     <div>
-        <a class="nav-link" href="./modifProfil.php?id=<?php echo($bien['id_bien'])?>">Modifier mon profil</a>
+        <a class="nav-link" href="./modifProfil.php?id=<?php echo($profil['id_utilisateur'])?>">Modifier mon profil</a>
     </div>
     <br>
     <img src="../Images/<?php echo($profil['photo'])?>" style="width:300px;height:450px"/>

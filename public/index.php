@@ -2,7 +2,6 @@
 require_once '../functions/search.php';
 require_once '../functions/disponibilite.php';
 
-//$recherche = getDisponibilites();
 
 $search = $_GET['search'] ?? null;
 
@@ -28,7 +27,6 @@ if(isset($_POST['prixmini']) && isset($_POST['prixmaxi']) && isset($_POST['lieux
 }else{
     $recherche = getListe($prixmini, $prixmaxi, $lieux, $places);
 }
-var_dump($_POST);
 ?>
 
 <figure>

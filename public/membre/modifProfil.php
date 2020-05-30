@@ -32,7 +32,7 @@ require_once '../../views/layout/header.php';
         </form>
     </div>
 
-<?php $id_utilisateur = $_GET['id_utilisateur'];
+<?php $id_utilisateur = $_SESSION['user_id'];
 
 if (!empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['solde'])) {
     $solde = $_POST['solde'];
@@ -53,7 +53,7 @@ if (!empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['solde'])
         // On bouge le fichier temporaire dans la destination
         if (move_uploaded_file($file['tmp_name'], $destination)) {
             echo $filename . " Correctement enregistré<br />";
-            $insertion = updateProfil($id_utilisateur, $solde, $nom, $prenom);
+            $insertion = updateProfil($id_utilisateur, $solde, $nom, $prenom, $filename);
         }
     }
 }
