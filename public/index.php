@@ -81,22 +81,27 @@ if(isset($_POST['prixmini']) && isset($_POST['prixmaxi']) && isset($_POST['lieux
     <br>
     <br>
 
-    <div class="card-group">
-        <?php foreach ($recherche as $bien) {
-            $photo = $bien['photo'];
-            $photo = explode(',', $photo);
-            $photo = $photo[0];?>
+    <div class="container">
+        <div class="card-deck">
             <div class="card" style="width: 18em;">
-                <img src="./Images/<?php echo $photo ?>" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title"><?php echo($bien['titre']) ?></h5>
-                    <p class="card-text"><?php echo($bien['lieux']) ?></p>
-                    <p class="card-text"><?php echo($bien['description']) ?></p>
-                    <p class="card-text"><?php echo($bien['prix']) ?></p>
-                    <a href="#"><a class="nav-link" href="bien.php?id=<?php echo($bien['id_bien'])?>"/>Voir l'annonce</a>
+                    <?php foreach ($recherche as $bien) {
+                        $photo = $bien['photo'];
+                        $photo = explode(',', $photo);
+                        $photo = $photo[0];?>
+                                <img src="./Images/<?php echo $photo ?>" class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title"><?php echo($bien['titre']) ?></h5>
+                                    <p class="card-text"><?php echo($bien['lieux']) ?></p>
+                                    <p class="card-text"><?php echo($bien['description']) ?></p>
+                                    <p class="card-text"><?php echo($bien['prix']) ?></p>
+                                    <a href="#"><a class="nav-link" href="bien.php?id=<?php echo($bien['id_bien'])?>"/>Voir l'annonce</a>
+                                </div>
+                    <?php } ?>
                 </div>
             </div>
-        <?php } ?>
+        </div>
     </div>
+</div>
 
 <?php require_once '../views/layout/footer.php'; ?>

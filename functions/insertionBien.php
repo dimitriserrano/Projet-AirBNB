@@ -7,7 +7,6 @@ function insertBien(int $id_utilisateur, string $titre, string $lieux, string $p
     $pdo=getPdo();
     $query = "INSERT INTO annonce (id_utilisateur, titre, lieux, prix, description, places, lit,  photo) VALUES (:id_utilisateur, :titre, :lieux, :prix, :description, :places, :lit, :photo)";
     $stmt = $pdo->prepare($query);
-    echo("jhfnkdj");
     return $stmt->execute([
         'id_utilisateur' => $id_utilisateur,
         'titre' => $titre,

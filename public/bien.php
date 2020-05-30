@@ -1,5 +1,7 @@
 <?php require_once '../views/layout/header.php';
 require_once '../functions/donnéeAnnonce.php';
+require_once '../functions/reservation.php';
+require_once '../functions/differenceDate.php';
 
 $id_bien = $_GET['id'];
 $bien = getAnnonce($id_bien);
@@ -7,6 +9,14 @@ $bien = getAnnonce($id_bien);
 $photo = $bien['photo'];
 $photo = explode(',', $photo);
 
+$id_utilisateur = $_SESSION['user_id'];
+
+if (isset($_POST['date_debut']) && isset($_POST['date_fin'])){
+    $prix = 50;
+    $date_debut = $_POST['date_debut'];
+    $date_fin = $_POST ['date_fin'];
+    $reservation = getReservation($id_bien, $id_utilisateur, $prix, $date_debut, $date_fin);
+}
 ?>
 
 <div class="container">
@@ -42,14 +52,6 @@ $photo = explode(',', $photo);
                 </div>
                 <br>
                 <br>
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">Information hôte</h5>
-                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="connexion.php" class="btn btn-primary">Voir le profil de l'hôte</a>
-                        <a href="./membre/profil.php"></a>
-                    </div>
-                </div>
             </div>
 
 
@@ -68,14 +70,27 @@ $photo = explode(',', $photo);
                     <br>
                     <div class="card" style="width: 18rem;">
                         <div class="card-body">
-                            <h5 class="card-title">Mettre un calendrier</h5>
+                            <h5>Réservation</h5>
+                            <small>Vous devez être connecter pour réserver</small>
+                            <br>
+                            <form method="POST">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Date de début</label>
+                                    <input type="date" class="form-control" id="date_debut" name="date_debut">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Date de fin</label>
+                                    <input type="date" class="form-control" id="date_fin" name="date_fin" >
+                                </div>
+                                <button type="submit" class="btn btn-primary">Je réserve</button>
+                            </form>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<?php require_once '../views/layout/footer.php';
+<?php
+require_once '../views/layout/footer.php';
