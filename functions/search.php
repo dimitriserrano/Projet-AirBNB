@@ -34,10 +34,10 @@ function getLieux(string $lieux){
 //Cette fonction permettra de pouvoir rechercher uniquement dans une tranche de prix
 function getPrix(string $prix){
     $pdo = getPdo();
-    $query = "SELECT * FROM annonce WHERE prix LIKE :prix";
+    $query = "SELECT * FROM annonce WHERE prix BETWEEN :prixmini AND :prixmaxi";
     $stmt =  $pdo->prepare($query);
     $stmt->execute([
-        'prix' => "%$prix%",
+        'prix' => "$prix",
     ]);
     return $stmt -> fetchAll(PDO::FETCH_ASSOC);
 }

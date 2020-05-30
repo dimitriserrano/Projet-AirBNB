@@ -19,11 +19,13 @@ if(isset($_POST['prixmini']) && isset($_POST['prixmaxi']) && isset($_POST['lieux
 }else if (!empty($_POST['lieux'])){
         $lieux = $_POST['lieux'];
         $recherche = getLieux($lieux);
-        var_dump($recherche);
 }else if (!empty($_POST['places'])){
     $places = $_POST['places'];
     $recherche = getPlaces($places);
-    echo"dvvqsv";
+}else if (!empty($_POST['prixmini']) && !empty(['prixmaxi'])){
+    $prixmini = $_POST['prixmini'];
+    $prixmaxi = $_POST['prixmaxi'];
+    $recherche = getPlaces($places);
 }else{
     $recherche = getListe($prixmini, $prixmaxi, $lieux, $places);
 }
@@ -33,29 +35,34 @@ if(isset($_POST['prixmini']) && isset($_POST['prixmaxi']) && isset($_POST['lieux
     <img src="./Images/paysage.jpg" alt="paysage" />
     <figcaption>
         <div class="container" style="position:absolute;top:100px;width:300px;margin:50px">
-            <h2>Réservez votre logement</h2>
+            <h2 style="color: white">Réservez votre logement</h2>
             <form method="post">
-                <div class="form-group" style="color:black">
+                <div class="form-group" style="color:white">
                     <label for="exampleFormControlTextarea1">Où ?</label>
                     <input type="text" class="form-control" id="lieux" name="lieux" aria-describedby="lieuHelp" value="<?php echo $search; ?>">
                     <small id="lieuHelp" class="form-text text-muted">Entrez le lieu de votre destination.</small>
                 </div>
-                <div class="form-group" style="color:black">
+                <div class="form-group" style="color:white">
                     <label for="exampleFormControlTextarea1">Du :</label>
                     <input type="text" class="form-control" id="dateAller" aria-describedby="dateA">
                     <small id="dateA" class="form-text text-muted">Entrez votre date de départ.</small>
                 </div>
-                <div class="form-group" style="color:black">
+                <div class="form-group" style="color:white">
                     <label for="exampleFormControlTextarea1">Au :</label>
                     <input type="text" class="form-control" id="dateRetour" aria-describedby="dateR">
                     <small id="dateR" class="form-text text-muted">Entrez votre date de retour.</small>
                 </div>
-                <div class="form-group" style="color:black">
-                    <label for="exampleFormControlTextarea1">Prix souhaité</label>
-                    <input type="text" class="form-control" id="prix" name="prix" aria-describedby="prix" value="<?php echo $search; ?>">
+                <div class="form-group" style="color:white">
+                    <label for="exampleFormControlTextarea1">Prix minimum souhaité</label>
+                    <input type="text" class="form-control" id="prixmini" name="prixmini" aria-describedby="prix" value="<?php echo $search; ?>">
                     <small id="prix" class="form-text text-muted">Entrez le prix maximum que vous désirez dépensé.</small>
                 </div>
-                <div class="form-group" style="color:black">
+                <div class="form-group" style="color:white">
+                    <label for="exampleFormControlTextarea1">Prix maximum souhaité</label>
+                    <input type="text" class="form-control" id="prixmaxi" name="prixmaxi" aria-describedby="prix" value="<?php echo $search; ?>">
+                    <small id="prix" class="form-text text-muted">Entrez le prix maximum que vous désirez dépensé.</small>
+                </div>
+                <div class="form-group" style="color:white">
                     <label for="exampleFormControlTextarea1">Personne :</label>
                     <input type="text" class="form-control" id="places" name="places" aria-describedby="prix" value="<?php echo $search; ?>">
                     <small id="places" class="form-text text-muted">Entrez le nombre de personnes qui désir voyager.</small>
