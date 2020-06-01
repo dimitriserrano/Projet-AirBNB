@@ -2,11 +2,11 @@
 require_once __DIR__ .'./db.php';
 
 //Cette fonction permettra de pouvoir faire une recherche de bien avec les différentes informations de celui-ci
-function getListe (?int $prixmini = null, ?int$prixmaxi = null, ?string $lieux = null, ?string $places = null){
+function getListe (?int $prixmini = null, ?int $prixmaxi = null, ?string $lieux = null, ?string $places = null){
     $pdo = getPdo();
     $query = "SELECT * FROM annonce";
     if ($prixmini !== null && $prixmaxi !== null && $lieux !== null && $places !== null){
-        $query .= " WHERE prix BETWEEN :prixmini AND :prixmaxi AND lieux LIKE ;lieux AND places>=:places";
+        $query .= " WHERE prix BETWEEN :prixmini AND :prixmaxi AND lieux LIKE :lieux AND places>=:places";
         $stmt = $pdo->prepare($query);
         $stmt->execute(array(
             'prixmini' => $prixmini,
@@ -32,12 +32,12 @@ function getLieux(string $lieux){
 }
 
 //Cette fonction permettra de pouvoir rechercher uniquement dans une tranche de prix
-function getPrix(string $prix){
+function getPrix(int $prixmini, int $prixmaxi){
     $pdo = getPdo();
     $query = "SELECT * FROM annonce WHERE prix BETWEEN :prixmini AND :prixmaxi";
     $stmt =  $pdo->prepare($query);
     $stmt->execute([
-        'prix' => "$prix",
+        'prix' => "%$prix%",
     ]);
     return $stmt -> fetchAll(PDO::FETCH_ASSOC);
 }

@@ -44,7 +44,7 @@ $annonce = getDisponibilite($id_utilisateur);
                     <h5 class="card-title"><?php echo($bien['titre']) ?></h5>
                     <p class="card-text"><?php echo($bien['lieux']) ?></p>
                     <p class="card-text"><?php echo($bien['description']) ?></p>
-                    <p class="card-text"><?php echo($bien['prix']) ?></p>
+                    <p class="card-text"><?php echo($bien['prix']) ?> €/personnes</p>
                     <a class="nav-link" href="../bien.php?id=<?php echo($bien['id_bien'])?>">Voir l'annonce</a>
                     <a class="nav-link" href="modifBien.php?id=<?php echo($bien['id_bien'])?>">Modifier mon bien</a>
                     <a class="nav-link" href="../../functions/deleteBien.php?id=<?php echo($bien['id_bien'])?>">Suppression</a>

@@ -10,22 +10,22 @@ $prixmaxi = null;
 $lieux = null;
 $places = null;
 
-if(isset($_POST['prixmini']) && isset($_POST['prixmaxi']) && isset($_POST['lieux']) && isset($_POST['places'])){
+if(!empty($_POST['prixmini']) && !empty($_POST['prixmaxi']) && isset($_POST['lieux']) && isset($_POST['places'])){
     $prixmini = $_POST['prixmini'];
     $prixmaxi = $_POST['prixmaxi'];
     $lieux = $_POST['lieux'];
     $places = $_POST['places'];
     $recherche = getListe($prixmini, $prixmaxi, $lieux, $places);
-}else if (!empty($_POST['lieux'])){
+}else if (isset($_POST['lieux'])){
         $lieux = $_POST['lieux'];
         $recherche = getLieux($lieux);
-}else if (!empty($_POST['places'])){
+}else if (isset($_POST['places'])){
     $places = $_POST['places'];
     $recherche = getPlaces($places);
-}else if (!empty($_POST['prixmini']) && !empty(['prixmaxi'])){
+}else if (isset($_POST['prixmini']) && isset($_POST['prixmaxi'])){
     $prixmini = $_POST['prixmini'];
     $prixmaxi = $_POST['prixmaxi'];
-    $recherche = getPlaces($places);
+    $recherche = getPrix($prixmini, $prixmaxi);
 }else{
     $recherche = getListe($prixmini, $prixmaxi, $lieux, $places);
 }
@@ -54,12 +54,12 @@ if(isset($_POST['prixmini']) && isset($_POST['prixmaxi']) && isset($_POST['lieux
                 </div>
                 <div class="form-group" style="color:white">
                     <label for="exampleFormControlTextarea1">Prix minimum souhaité</label>
-                    <input type="text" class="form-control" id="prixmini" name="prixmini" aria-describedby="prix" value="<?php echo $search; ?>">
+                    <input type="number" class="form-control" id="prixmini" name="prixmini" aria-describedby="prix" value="<?php echo $search; ?>">
                     <small id="prix" class="form-text text-muted">Entrez le prix maximum que vous désirez dépensé.</small>
                 </div>
                 <div class="form-group" style="color:white">
                     <label for="exampleFormControlTextarea1">Prix maximum souhaité</label>
-                    <input type="text" class="form-control" id="prixmaxi" name="prixmaxi" aria-describedby="prix" value="<?php echo $search; ?>">
+                    <input type="number" class="form-control" id="prixmaxi" name="prixmaxi" aria-describedby="prix" value="<?php echo $search; ?>">
                     <small id="prix" class="form-text text-muted">Entrez le prix maximum que vous désirez dépensé.</small>
                 </div>
                 <div class="form-group" style="color:white">
