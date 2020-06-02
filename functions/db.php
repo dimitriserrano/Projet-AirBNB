@@ -6,8 +6,8 @@ function getPdo(): PDO
     try {
        $pdo = new PDO (
            "mysql:host=localhost;dbname=projetweb",
-           "projetweb",
-           "D5OZCEHLVQDJ8zCi"
+           "airbnb1",
+           "M54RjQhx7Z8QyTnj"
        );
        return $pdo;
     } catch (PDOException $ex){
